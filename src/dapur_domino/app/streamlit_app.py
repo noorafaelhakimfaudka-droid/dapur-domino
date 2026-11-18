@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import os
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +14,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
+
+_SRC_ROOT = Path(__file__).resolve().parents[2]
+if str(_SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(_SRC_ROOT))
 
 from dapur_domino.app.artifacts_loader import (
     build_recipe_graph_from_csv,
@@ -1222,15 +1227,33 @@ def _render_evidence_page(state: dict[str, Any]) -> None:
             unsafe_allow_html=True,
         )
         if st.button("Periksa keutuhan seluruh file data"):
-            raw_errs = verify_raw_manifest(
-                REPO_ROOT / "data" / "raw" / "manifest.json", REPO_ROOT / "data" / "raw"
+            has_raw_files = any(
+                p.name != ".gitkeep"
+                for sub in ("prices", "recipes")
+                if (REPO_ROOT / "data" / "raw" / sub).is_dir()
+                for p in (REPO_ROOT / "data" / "raw" / sub).rglob("*")
+                if p.is_file()
+            )
+            raw_errs = (
+                verify_raw_manifest(
+                    REPO_ROOT / "data" / "raw" / "manifest.json", REPO_ROOT / "data" / "raw"
+                )
+                if has_raw_files
+                else []
             )
             run_errs: dict[str, list[str]] = {}
             for k, rdir in runs.items():
                 if rdir is not None:
-                    run_errs[k] = verify_run_manifest(rdir / "manifest.json")
+                    run_errs[k] = verify_run_manifest(rdir / "manifest.json", repo_root=REPO_ROOT)
             if not raw_errs and all(not v for v in run_errs.values()):
-                st.success("Semua file data mentah dan hasil analisis utuh dan terverifikasi.")
+                if has_raw_files:
+                    st.success("Semua file data mentah dan hasil analisis utuh dan terverifikasi.")
+                else:
+                    st.success(
+                        "Semua artefak olahan dan hasil analisis (M1–M4) utuh serta "
+                        "terverifikasi SHA-256. (Data mentah data/raw/ tetap tersimpan "
+                        "lokal demi kepatuhan lisensi.)"
+                    )
             else:
                 st.error({"raw_errors": raw_errs, "run_errors": run_errs})
 
@@ -1260,7 +1283,7 @@ def main() -> None:
 
     st.markdown(
         '<div class="dd-footer">'
-        "Dapur Domino · Berjalan 100% lokal di perangkat Anda · "
+        "Dapur Domino · Tanpa cloud LLM &amp; 100% deterministik · "
         f"Data harga: PIHPS Bank Indonesia, per {_esc(latest_dt_indo)}"
         "</div>",
         unsafe_allow_html=True,

@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import networkx as nx
-from gensim.models import Word2Vec
+
+if TYPE_CHECKING:
+    from gensim.models import Word2Vec
 
 
 def train_ingredient_embeddings(
@@ -18,6 +20,8 @@ def train_ingredient_embeddings(
     epochs: int = 10,
 ) -> Word2Vec:
     """Train a deterministic Skip-gram Word2Vec model on ingredient sets (`workers=1`)."""
+    from gensim.models import Word2Vec
+
     sentences = [sorted(set(ings)) for ings in recipe_ingredients if len(set(ings)) >= 2]
     if not sentences:
         raise ValueError("Cannot train Word2Vec on empty recipe corpus")

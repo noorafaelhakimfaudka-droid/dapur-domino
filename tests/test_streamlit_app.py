@@ -179,6 +179,19 @@ def test_streamlit_app_renders_all_four_pages(tmp_path: Path) -> None:
         ):
             at.radio[0].set_value(page_label).run()
             assert not at.exception
+
+        # Verify integrity button works locally, then also works in cloud mode (no raw files).
+        at.button[0].click().run()
+        assert not at.exception
+        assert at.success
+
+        for sub in ("prices", "recipes"):
+            for p in (tmp_path / "data" / "raw" / sub).rglob("*"):
+                if p.is_file() and p.name != ".gitkeep":
+                    p.unlink()
+        at.button[0].click().run()
+        assert not at.exception
+        assert at.success
     finally:
         if prev_env is None:
             os.environ.pop("DAPUR_DOMINO_ROOT", None)

@@ -9,7 +9,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 from dapur_domino.ingest.manifest import compute_sha256_file, resolve_within
@@ -185,13 +185,40 @@ class RunTracker:
         tmp.replace(self.manifest_path)
 
 
-def verify_run_manifest(manifest_path: Path) -> list[str]:
+def _resolve_manifest_artifact_path(
+    raw_path: str,
+    manifest_path: Path,
+    repo_root: Path | None,
+) -> Path:
+    """Resolve an artifact path directly, or remap cross-platform repo paths cleanly."""
+    p = Path(raw_path)
+    if p.is_file() or repo_root is None:
+        return p
+
+    norm = raw_path.replace("\\", "/")
+    for marker in ("data/processed/", "artifacts/runs/", "data/external/"):
+        if marker in norm:
+            rel_suffix = marker + norm.split(marker, 1)[1]
+            try:
+                candidate = resolve_within(repo_root, rel_suffix)
+                if candidate.is_file():
+                    return candidate
+            except ValueError:
+                pass
+
+    sibling = manifest_path.parent / PurePosixPath(norm).name
+    if sibling.is_file():
+        return sibling
+    return p
+
+
+def verify_run_manifest(manifest_path: Path, *, repo_root: Path | None = None) -> list[str]:
     """Verify every recorded output artifact in a run manifest matches size and SHA-256."""
     data = json.loads(manifest_path.read_text(encoding="utf-8"))
     errors: list[str] = []
     artifacts: dict[str, Any] = data.get("artifacts", {})
     for name, info in sorted(artifacts.items()):
-        p = Path(info["path"])
+        p = _resolve_manifest_artifact_path(str(info["path"]), manifest_path, repo_root)
         if not p.is_file():
             errors.append(f"{name}: missing artifact ({p})")
             continue
