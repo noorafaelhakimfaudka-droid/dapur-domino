@@ -1,0 +1,11 @@
+node,out_degree,in_degree,weighted_out,weighted_in,net_trigger_score,pagerank,commodity_name
+cat_9,9,2,41.2603,6.2634,34.997,0.035852,Minyak Goreng
+cat_4,9,5,36.6275,13.2374,23.3901,0.244653,Telur Ayam
+cat_1,8,5,30.3648,17.366,12.9988,0.088432,Beras
+cat_3,8,3,17.3518,6.3669,10.985,0.032601,Daging Sapi
+cat_10,3,3,6.1888,7.8551,-1.6663,0.037872,Gula Pasir
+cat_6,5,6,14.2532,20.7814,-6.5283,0.136469,Bawang Putih
+cat_2,5,6,13.201,22.3082,-9.1072,0.093849,Daging Ayam
+cat_5,1,6,2.4396,19.3713,-16.9317,0.080387,Bawang Merah
+cat_8,1,7,1.7423,21.7653,-20.023,0.110767,Cabai Rawit
+cat_7,1,7,1.3708,29.4853,-28.1144,0.139117,Cabai Merah

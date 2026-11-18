@@ -1,0 +1,11 @@
+comcat_id,commodity_name,n_provinces,pairs_tested,significant_edges,top_leader_province,top_leader_out_degree
+cat_1,Beras,34,1122,241,Jawa Barat,15
+cat_2,Daging Ayam,34,1122,121,Jawa Tengah,14
+cat_3,Daging Sapi,34,1122,202,Papua,15
+cat_4,Telur Ayam,34,1122,222,Jawa Barat,21
+cat_5,Bawang Merah,34,1122,465,Jawa Barat,29
+cat_6,Bawang Putih,34,1122,99,Jawa Tengah,7
+cat_7,Cabai Merah,34,1122,377,Jawa Tengah,24
+cat_8,Cabai Rawit,34,1122,364,Jawa Timur,24
+cat_9,Minyak Goreng,34,1122,91,Aceh,5
+cat_10,Gula Pasir,34,1122,359,Jawa Timur,24

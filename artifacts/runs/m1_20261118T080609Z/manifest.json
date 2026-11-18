@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "run_id": "m1_20261118T080609Z",
+  "stage": "m1_prices",
+  "status": "completed",
+  "started_at_utc": "2026-11-18T08:06:09.969041+00:00",
+  "finished_at_utc": "2026-11-18T08:07:00.778395+00:00",
+  "seed": 42,
+  "git_commit": null,
+  "config": {
+    "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\configs\\default.yaml",
+    "sha256": "05c8c159d2e640633ba6011efb4eb1a32a7ba38a6749f7b4290b477bdedcb748"
+  },
+  "raw_manifest_sha256": "89c28027a655df030d21f6dd1616bfa3eb475454d55e51dfb27e0f9f415e10a6",
+  "metrics": {
+    "levels": {
+      "national": {
+        "cleaning": {
+          "raw_rows": 1141526,
+          "business_day_rows": 804,
+          "holiday_dates_dropped": 8,
+          "total_series": 10,
+          "retained_series": 10,
+          "excluded_series": 0,
+          "outlier_count": 0
+        },
+        "stationarity_vp4": {
+          "total_series": 10,
+          "return_stationary_both": 9,
+          "return_stationary_both_pct": 90.0,
+          "return_adf_pass": 10,
+          "return_adf_pass_pct": 100.0,
+          "level_stationary_both": 0,
+          "return_status_counts": {
+            "stationary_both": 9,
+            "adf_only": 1
+          }
+        }
+      },
+      "province": {
+        "cleaning": {
+          "raw_rows": 1141526,
+          "business_day_rows": 804,
+          "holiday_dates_dropped": 8,
+          "total_series": 340,
+          "retained_series": 340,
+          "excluded_series": 0,
+          "outlier_count": 9
+        },
+        "stationarity_vp4": {
+          "total_series": 340,
+          "return_stationary_both": 334,
+          "return_stationary_both_pct": 98.24,
+          "return_adf_pass": 340,
+          "return_adf_pass_pct": 100.0,
+          "level_stationary_both": 68,
+          "return_status_counts": {
+            "stationary_both": 334,
+            "adf_only": 6
+          }
+        }
+      },
+      "city": {
+        "cleaning": {
+          "raw_rows": 1141526,
+          "business_day_rows": 804,
+          "holiday_dates_dropped": 8,
+          "total_series": 1099,
+          "retained_series": 1049,
+          "excluded_series": 50,
+          "outlier_count": 66
+        },
+        "stationarity_vp4": {
+          "total_series": 1049,
+          "return_stationary_both": 1028,
+          "return_stationary_both_pct": 98.0,
+          "return_adf_pass": 1047,
+          "return_adf_pass_pct": 99.81,
+          "level_stationary_both": 236,
+          "return_status_counts": {
+            "stationary_both": 1028,
+            "adf_only": 19,
+            "constant_series": 2
+          }
+        }
+      }
+    }
+  },
+  "resources": {
+    "duration_sec": 50.804,
+    "peak_rss_mb": 796.098
+  },
+  "artifacts": {
+    "long_panel_parquet": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\pihps_long_panel.parquet",
+      "kind": "processed_data",
+      "size_bytes": 1125687,
+      "sha256": "30cd12a90f2dec897025114caca202042fd86526b76e9332752100b480d37733"
+    },
+    "wide_prices_national": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\prices_national_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 33469,
+      "sha256": "b2ffc704273f7d6ebf2de421181810d198d1ee565b9f5b8d31ab9e725e8d76a2"
+    },
+    "wide_returns_national": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\returns_national_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 58587,
+      "sha256": "fffe4bef2624dab25d912302052dfc7d2cad9154f72b57e54e067339c7ee0e6e"
+    },
+    "series_audit_national": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\series_audit_national.csv",
+      "kind": "output",
+      "size_bytes": 445,
+      "sha256": "2aa41eff89f5f061fa6615b6640c46c82c36806028dd97362ad3e065e62fc089"
+    },
+    "outlier_audit_national": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\outlier_audit_national.csv",
+      "kind": "output",
+      "size_bytes": 64,
+      "sha256": "a163cb3f63ba54bbaaf32483c19731945e1ba73c65889db8e16c2a66e4121b89"
+    },
+    "stationarity_national": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\stationarity_national.csv",
+      "kind": "output",
+      "size_bytes": 6633,
+      "sha256": "6ac4a5a43405b1dff1dc79e614159a06877e12c61db15611ba9a51855383e75b"
+    },
+    "wide_prices_province": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\prices_province_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 671658,
+      "sha256": "d9c40f339a9c354ce5ac642d9ffc42ad6562f49aae4f099e5f25c55d693b5215"
+    },
+    "wide_returns_province": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\returns_province_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 1199594,
+      "sha256": "f7ff0305d9e5ae0cd5ed002ce29afd84348b0f54c7c5f6b19f435d8aa22695ca"
+    },
+    "series_audit_province": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\series_audit_province.csv",
+      "kind": "output",
+      "size_bytes": 17617,
+      "sha256": "15c3da6ac4405ef1998aafa03d1c96253eb8f0f9fdf19bd04c646c8e5a12399d"
+    },
+    "outlier_audit_province": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\outlier_audit_province.csv",
+      "kind": "output",
+      "size_bytes": 641,
+      "sha256": "f9df0803943f9446aa5bd8b04cf4356f347a653d41e42bd385155c11ace2a707"
+    },
+    "stationarity_province": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\stationarity_province.csv",
+      "kind": "output",
+      "size_bytes": 214677,
+      "sha256": "f9f66696970f8484ca2193a88230ca8955de2715e5efa7c6629634c98d48d837"
+    },
+    "wide_prices_city": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\prices_city_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 1522459,
+      "sha256": "efa36e5db9dfded5cc9a43cf6908ef4f3ef8503a254504f593469d1d936de161"
+    },
+    "wide_returns_city": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\prices\\returns_city_wide.parquet",
+      "kind": "processed_data",
+      "size_bytes": 2540796,
+      "sha256": "9dca6c62ea93fa4801f1dc1496d35d80a2e817c6dbdf8859c4f051a83ccf3a8d"
+    },
+    "series_audit_city": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\series_audit_city.csv",
+      "kind": "output",
+      "size_bytes": 57975,
+      "sha256": "ae260a2fd1a3eae42128c924a1a08ee2db23f2fac5c004d4dc63aa6c461d5e4a"
+    },
+    "outlier_audit_city": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\outlier_audit_city.csv",
+      "kind": "output",
+      "size_bytes": 4565,
+      "sha256": "757d37e4be4ccf61a8f3a30895e5a4b62860bbfe198a21fa6a39762b237b219b"
+    },
+    "stationarity_city": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\stationarity_city.csv",
+      "kind": "output",
+      "size_bytes": 663200,
+      "sha256": "0ac4c24268cad60d8b0f2f95a2f48119f2257e01eaf98afc2862b0314bfb12d9"
+    },
+    "m1_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m1_20261118T080609Z\\m1_summary.json",
+      "kind": "output",
+      "size_bytes": 1849,
+      "sha256": "82f76cd13908e7f8e49c9bb75af341d210f7d708ae100c99b7f5bfffde373506"
+    }
+  },
+  "error": null
+}

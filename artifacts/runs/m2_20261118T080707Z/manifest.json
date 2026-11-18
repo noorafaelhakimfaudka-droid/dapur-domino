@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "run_id": "m2_20261118T080707Z",
+  "stage": "m2_domino",
+  "status": "completed",
+  "started_at_utc": "2026-11-18T08:07:07.633776+00:00",
+  "finished_at_utc": "2026-11-18T08:08:01.808155+00:00",
+  "seed": 42,
+  "git_commit": null,
+  "config": {
+    "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\configs\\default.yaml",
+    "sha256": "05c8c159d2e640633ba6011efb4eb1a32a7ba38a6749f7b4290b477bdedcb748"
+  },
+  "raw_manifest_sha256": "89c28027a655df030d21f6dd1616bfa3eb475454d55e51dfb27e0f9f415e10a6",
+  "metrics": {
+    "train_rows": 500,
+    "total_return_rows": 796,
+    "commodity_domino_raw": {
+      "pairs_tested": 90,
+      "significant_edges": 50
+    },
+    "commodity_domino_seasonal_adj": {
+      "pairs_tested": 90,
+      "significant_edges": 56
+    },
+    "vp5_permutation_control": {
+      "n_permutations": 20,
+      "total_pairs_per_run": 90,
+      "fdr_alpha": 0.05,
+      "mean_false_edges": 3.1,
+      "max_false_edges": 9,
+      "mean_false_edge_rate": 0.034444,
+      "max_false_edge_rate": 0.1
+    },
+    "vp6_walk_forward_raw": {
+      "targets_with_triggers": 10,
+      "targets_vp6_validated": 2,
+      "mean_skill_vs_ar_pct": 0.1795
+    },
+    "vp6_walk_forward_seasonal_adj": {
+      "targets_with_triggers": 10,
+      "targets_vp6_validated": 2,
+      "mean_skill_vs_ar_pct": 1.7557
+    },
+    "vp7_seasonal_robustness": {
+      "base_significant_edges": 50,
+      "adjusted_significant_edges": 56,
+      "survived_edges": 50,
+      "retention_pct_of_base": 100.0,
+      "new_only_after_adjustment": 6,
+      "dropped_after_adjustment": 0
+    },
+    "spatial_province_commodities_analyzed": 10,
+    "spatial_city_commodities_analyzed": 3
+  },
+  "resources": {
+    "duration_sec": 54.1657,
+    "peak_rss_mb": 202.105
+  },
+  "artifacts": {
+    "commodity_edges_raw": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\commodity_edges_raw_train.csv",
+      "kind": "output",
+      "size_bytes": 11081,
+      "sha256": "90c9255a5dca7747e003e9b98f78497f362f35b1325e1f83fb317873218e6f0e"
+    },
+    "commodity_nodes_raw": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\commodity_nodes_raw_train.csv",
+      "kind": "output",
+      "size_bytes": 642,
+      "sha256": "c3e82bcbf40c7e59861cc48537f5481a3fc79203acee3fe79911b5f5ac2110e1"
+    },
+    "commodity_edges_adj": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\commodity_edges_seasonal_adj_train.csv",
+      "kind": "output",
+      "size_bytes": 9120,
+      "sha256": "5f9ad2659891baeefc9aafc05637de590af14ad6952f4c015411ff54ee8105f3"
+    },
+    "commodity_nodes_adj": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\commodity_nodes_seasonal_adj_train.csv",
+      "kind": "output",
+      "size_bytes": 516,
+      "sha256": "dd37f36524eded57eef9e0452f50e754ade7991e30cd13d8c95aebca2622bb8a"
+    },
+    "walk_forward_raw": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\walk_forward_raw.csv",
+      "kind": "output",
+      "size_bytes": 1830,
+      "sha256": "cd88261946d6e981ad2e70a213aab45e1514799d4f9ae1a519e21a9eb0a7552c"
+    },
+    "walk_forward_seasonal_adj": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\walk_forward_seasonal_adj.csv",
+      "kind": "output",
+      "size_bytes": 1866,
+      "sha256": "d0fe848f6ead686d22e0087ee1daa345bbb7edc51bf16b293728e4ef3218a745"
+    },
+    "spatial_province_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_province_summary.csv",
+      "kind": "output",
+      "size_bytes": 546,
+      "sha256": "ff26a8c6931f7a4d8a0a6cb3b1326e82a88629b1582d4b320389ba87dd3fe527"
+    },
+    "spatial_province_edges": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_province_significant_edges.csv",
+      "kind": "output",
+      "size_bytes": 319826,
+      "sha256": "4e7c5acfc7417e0aaa40a299cf2442e01d890e3305eb923b58a97097e8ec30a6"
+    },
+    "spatial_province_nodes": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_province_nodes.csv",
+      "kind": "output",
+      "size_bytes": 19332,
+      "sha256": "49390afd2adcaf36690ee9abab9b89bcdd30728218c6276612dfd17d328ab4db"
+    },
+    "spatial_city_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_city_summary.csv",
+      "kind": "output",
+      "size_bytes": 272,
+      "sha256": "bddffaed93026176b9fa012445f17e359b7f5bfb7279c436f521309499f60405"
+    },
+    "spatial_city_edges": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_city_significant_edges.csv",
+      "kind": "output",
+      "size_bytes": 1344370,
+      "sha256": "b11c46eabeff5d0507579d1c07082756e73499bf1ee84487ea1ec6dcfc0526b6"
+    },
+    "spatial_city_nodes": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\spatial_city_nodes.csv",
+      "kind": "output",
+      "size_bytes": 19326,
+      "sha256": "604076991715a5a29d4811bb80ee0b4ae4b3d3c28999c0ede2b43a3776e3e2cd"
+    },
+    "case_study_idul_fitri": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\case_study_idul_fitri.csv",
+      "kind": "output",
+      "size_bytes": 2465,
+      "sha256": "c74a1f5f1078c3b0a9a8fc7bfa939cf0669e1282d258d09fa9b1e6480db1dd59"
+    },
+    "m2_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m2_20261118T080707Z\\m2_summary.json",
+      "kind": "output",
+      "size_bytes": 1116,
+      "sha256": "8f41e055f9bd8344edbb5a6e03555ecb3637fe29249aa6b38effeb118d891b46"
+    }
+  },
+  "error": null
+}

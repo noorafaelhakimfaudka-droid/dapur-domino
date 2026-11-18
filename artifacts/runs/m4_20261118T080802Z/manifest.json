@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "run_id": "m4_20261118T080802Z",
+  "stage": "m4_bridge",
+  "status": "completed",
+  "started_at_utc": "2026-11-18T08:08:02.837375+00:00",
+  "finished_at_utc": "2026-11-18T08:08:02.961273+00:00",
+  "seed": 42,
+  "git_commit": null,
+  "config": {
+    "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\configs\\default.yaml",
+    "sha256": "05c8c159d2e640633ba6011efb4eb1a32a7ba38a6749f7b4290b477bdedcb748"
+  },
+  "raw_manifest_sha256": "89c28027a655df030d21f6dd1616bfa3eb475454d55e51dfb27e0f9f415e10a6",
+  "metrics": {
+    "weights": {
+      "similarity": 0.6,
+      "price": 0.4
+    },
+    "mapping_coverage_fr_c4": {
+      "total_vocab_ingredients": 1334,
+      "mapped_vocab_ingredients": 14,
+      "vocab_coverage_pct": 1.05,
+      "total_recipe_mentions": 783564,
+      "mapped_recipe_mentions": 217380,
+      "mention_coverage_pct": 27.74
+    },
+    "n_eval_cases": 10,
+    "cases_with_candidates": 10
+  },
+  "resources": {
+    "duration_sec": 0.1331,
+    "peak_rss_mb": 92.898
+  },
+  "artifacts": {
+    "commodity_price_metrics": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\bridge\\commodity_price_metrics.csv",
+      "kind": "processed_data",
+      "size_bytes": 727,
+      "sha256": "0b8ebd780d5d5c429cf14057b31d04f217084adfd6244cd7f472f9c312e21b60"
+    },
+    "bridge_eval_details": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m4_20261118T080802Z\\bridge_eval_details.csv",
+      "kind": "output",
+      "size_bytes": 33559,
+      "sha256": "59542fcacceef67b718e63cb734ec5af4151862deb444fc43e48fc6b888d09d8"
+    },
+    "bridge_eval_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m4_20261118T080802Z\\bridge_eval_summary.csv",
+      "kind": "output",
+      "size_bytes": 1032,
+      "sha256": "12d7a425d9f2a9b750ec5febfd7a9adfaa940c15b1134d3dcf2d6221b3147e6f"
+    },
+    "m4_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m4_20261118T080802Z\\m4_summary.json",
+      "kind": "output",
+      "size_bytes": 381,
+      "sha256": "39f73a6a88f00e6f338c8a15c8031279af5b68c6ee0e13dbbd85a790c08ff14c"
+    }
+  },
+  "error": null
+}

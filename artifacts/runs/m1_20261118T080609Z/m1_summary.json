@@ -1,0 +1,72 @@
+{
+  "national": {
+    "cleaning": {
+      "raw_rows": 1141526,
+      "business_day_rows": 804,
+      "holiday_dates_dropped": 8,
+      "total_series": 10,
+      "retained_series": 10,
+      "excluded_series": 0,
+      "outlier_count": 0
+    },
+    "stationarity_vp4": {
+      "total_series": 10,
+      "return_stationary_both": 9,
+      "return_stationary_both_pct": 90.0,
+      "return_adf_pass": 10,
+      "return_adf_pass_pct": 100.0,
+      "level_stationary_both": 0,
+      "return_status_counts": {
+        "stationary_both": 9,
+        "adf_only": 1
+      }
+    }
+  },
+  "province": {
+    "cleaning": {
+      "raw_rows": 1141526,
+      "business_day_rows": 804,
+      "holiday_dates_dropped": 8,
+      "total_series": 340,
+      "retained_series": 340,
+      "excluded_series": 0,
+      "outlier_count": 9
+    },
+    "stationarity_vp4": {
+      "total_series": 340,
+      "return_stationary_both": 334,
+      "return_stationary_both_pct": 98.24,
+      "return_adf_pass": 340,
+      "return_adf_pass_pct": 100.0,
+      "level_stationary_both": 68,
+      "return_status_counts": {
+        "stationary_both": 334,
+        "adf_only": 6
+      }
+    }
+  },
+  "city": {
+    "cleaning": {
+      "raw_rows": 1141526,
+      "business_day_rows": 804,
+      "holiday_dates_dropped": 8,
+      "total_series": 1099,
+      "retained_series": 1049,
+      "excluded_series": 50,
+      "outlier_count": 66
+    },
+    "stationarity_vp4": {
+      "total_series": 1049,
+      "return_stationary_both": 1028,
+      "return_stationary_both_pct": 98.0,
+      "return_adf_pass": 1047,
+      "return_adf_pass_pct": 99.81,
+      "level_stationary_both": 236,
+      "return_status_counts": {
+        "stationary_both": 1028,
+        "adf_only": 19,
+        "constant_series": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "run_id": "m3_20261118T070540Z",
+  "stage": "m3_recipes",
+  "status": "completed",
+  "started_at_utc": "2026-11-18T07:05:40.462632+00:00",
+  "finished_at_utc": "2026-11-18T07:06:32.681081+00:00",
+  "seed": 42,
+  "git_commit": null,
+  "config": {
+    "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\configs\\default.yaml",
+    "sha256": "fd6ceaebcc6f4daeabd5af3082be7db532d12a02608aad404c2b1fddbe185050"
+  },
+  "raw_manifest_sha256": "61dc2f7d2df8b5f3b088c6ee3edbefc94ed149cd93218e905410718749b4e059",
+  "metrics": {
+    "corpus": {
+      "train_recipes": 66419,
+      "train_raw_lines": 852568,
+      "eval_recipes": 3496,
+      "eval_raw_lines": 44951
+    },
+    "graph": {
+      "nodes": 1334,
+      "edges": 11938,
+      "communities": 82
+    },
+    "word2vec_vocab": 1334,
+    "vp2_hide_one_ingredient": {
+      "n_eval_recipes": 3459,
+      "methods": {
+        "popularity": {
+          "top_5": {
+            "hits": 1414,
+            "accuracy_pct": 40.88,
+            "ci95_pct": [
+              39.25,
+              42.53
+            ]
+          },
+          "top_10": {
+            "hits": 1888,
+            "accuracy_pct": 54.58,
+            "ci95_pct": [
+              52.92,
+              56.24
+            ]
+          }
+        },
+        "npmi_graph": {
+          "top_5": {
+            "hits": 824,
+            "accuracy_pct": 23.82,
+            "ci95_pct": [
+              22.43,
+              25.27
+            ]
+          },
+          "top_10": {
+            "hits": 1118,
+            "accuracy_pct": 32.32,
+            "ci95_pct": [
+              30.78,
+              33.9
+            ]
+          }
+        },
+        "cooccur_conditional": {
+          "top_5": {
+            "hits": 1574,
+            "accuracy_pct": 45.5,
+            "ci95_pct": [
+              43.85,
+              47.17
+            ]
+          },
+          "top_10": {
+            "hits": 1947,
+            "accuracy_pct": 56.29,
+            "ci95_pct": [
+              54.63,
+              57.93
+            ]
+          }
+        },
+        "word2vec_context": {
+          "top_5": {
+            "hits": 264,
+            "accuracy_pct": 7.63,
+            "ci95_pct": [
+              6.79,
+              8.56
+            ]
+          },
+          "top_10": {
+            "hits": 381,
+            "accuracy_pct": 11.01,
+            "ci95_pct": [
+              10.01,
+              12.1
+            ]
+          }
+        }
+      }
+    },
+    "vp3_substitution_recall": {
+      "total_reference_items": 25,
+      "evaluated_in_vocab": 25,
+      "skipped_oov": 0,
+      "recall": {
+        "recall_at_5": 24.0,
+        "recall_at_10": 24.0
+      },
+      "hits": {
+        "hits_at_5": 6,
+        "hits_at_10": 6
+      }
+    }
+  },
+  "resources": {
+    "duration_sec": 52.2251,
+    "peak_rss_mb": 313.57
+  },
+  "artifacts": {
+    "train_normalized_parquet": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\train_normalized.parquet",
+      "kind": "processed_data",
+      "size_bytes": 3094216,
+      "sha256": "34b1b54b65c2d344a3d897f9a29c702466818b0424fbe0042e06aba544215bdb"
+    },
+    "eval_normalized_parquet": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\eval_normalized.parquet",
+      "kind": "processed_data",
+      "size_bytes": 189387,
+      "sha256": "9e9f9aca517be4928da8cd2a67edfd33445458626251c1d84bebdd02f2b06806"
+    },
+    "ingredient_nodes": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\ingredient_nodes.csv",
+      "kind": "processed_data",
+      "size_bytes": 47445,
+      "sha256": "b505ce18938dcbd0e03cd7aae8bd795d41efdfba08b5d54bf3593bccfdd46d02"
+    },
+    "ingredient_edges": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\ingredient_edges.csv",
+      "kind": "processed_data",
+      "size_bytes": 630993,
+      "sha256": "0caa4b518739094c313bcc47745b4a40cba0e064637cbbf9a38509cce4ed540f"
+    },
+    "ingredient_word2vec_model": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\ingredient_word2vec.model",
+      "kind": "model",
+      "size_bytes": 736641,
+      "sha256": "09cb3699f7aa79c59af1f6b87b19d98b76a4347e84991df4315a4acd93cfcfa3"
+    },
+    "ingredient_substitutions": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\data\\processed\\recipes\\ingredient_substitutions.parquet",
+      "kind": "processed_data",
+      "size_bytes": 139472,
+      "sha256": "19a306dc4be75f78ea6b017b47fba2dc2af79e4a50f20428637378e21acab0cf"
+    },
+    "vp3_substitution_details": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m3_20261118T070540Z\\vp3_substitution_details.json",
+      "kind": "output",
+      "size_bytes": 12344,
+      "sha256": "c44cb0e2ee8d02e8ba88b1d986bfe2ece5c22a3a6ce45aa44998d0263c37f8f6"
+    },
+    "flavor_communities": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m3_20261118T070540Z\\flavor_communities.csv",
+      "kind": "output",
+      "size_bytes": 2492,
+      "sha256": "56e0379bc670f6831dd9720e928d48068cfcbe158739ee40cc29b97c085bc85c"
+    },
+    "m3_summary": {
+      "path": "C:\\Users\\asus\\.gemini\\antigravity\\scratch\\dapur-domino\\artifacts\\runs\\m3_20261118T070540Z\\m3_summary.json",
+      "kind": "output",
+      "size_bytes": 2102,
+      "sha256": "8de25bb290462d0affe8cc061ab50f73f7837059b7bc3fa8ede4df676f44288f"
+    }
+  },
+  "error": null
+}

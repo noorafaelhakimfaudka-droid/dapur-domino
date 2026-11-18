@@ -1,0 +1,104 @@
+{
+  "corpus": {
+    "train_recipes": 66419,
+    "train_raw_lines": 852568,
+    "eval_recipes": 3496,
+    "eval_raw_lines": 44951
+  },
+  "graph": {
+    "nodes": 1334,
+    "edges": 11938,
+    "communities": 82
+  },
+  "word2vec_vocab": 1334,
+  "vp2_hide_one_ingredient": {
+    "n_eval_recipes": 3459,
+    "methods": {
+      "popularity": {
+        "top_5": {
+          "hits": 1414,
+          "accuracy_pct": 40.88,
+          "ci95_pct": [
+            39.25,
+            42.53
+          ]
+        },
+        "top_10": {
+          "hits": 1888,
+          "accuracy_pct": 54.58,
+          "ci95_pct": [
+            52.92,
+            56.24
+          ]
+        }
+      },
+      "npmi_graph": {
+        "top_5": {
+          "hits": 824,
+          "accuracy_pct": 23.82,
+          "ci95_pct": [
+            22.43,
+            25.27
+          ]
+        },
+        "top_10": {
+          "hits": 1118,
+          "accuracy_pct": 32.32,
+          "ci95_pct": [
+            30.78,
+            33.9
+          ]
+        }
+      },
+      "cooccur_conditional": {
+        "top_5": {
+          "hits": 1574,
+          "accuracy_pct": 45.5,
+          "ci95_pct": [
+            43.85,
+            47.17
+          ]
+        },
+        "top_10": {
+          "hits": 1947,
+          "accuracy_pct": 56.29,
+          "ci95_pct": [
+            54.63,
+            57.93
+          ]
+        }
+      },
+      "word2vec_context": {
+        "top_5": {
+          "hits": 264,
+          "accuracy_pct": 7.63,
+          "ci95_pct": [
+            6.79,
+            8.56
+          ]
+        },
+        "top_10": {
+          "hits": 381,
+          "accuracy_pct": 11.01,
+          "ci95_pct": [
+            10.01,
+            12.1
+          ]
+        }
+      }
+    }
+  },
+  "vp3_substitution_recall": {
+    "total_reference_items": 25,
+    "evaluated_in_vocab": 25,
+    "skipped_oov": 0,
+    "recall": {
+      "recall_at_5": 24.0,
+      "recall_at_10": 24.0
+    },
+    "hits": {
+      "hits_at_5": 6,
+      "hits_at_10": 6
+    }
+  }
+}

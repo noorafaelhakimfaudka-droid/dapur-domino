@@ -1,0 +1,4 @@
+comcat_id,commodity_name,n_cities,pairs_tested,significant_edges,top_leader_city,top_leader_out_degree
+cat_7,Cabai Merah,105,10920,3428,Kota Surakarta (Solo),77
+cat_5,Bawang Merah,105,10920,3540,Kab. Mimika,80
+cat_8,Cabai Rawit,105,10920,3515,Kota Surakarta (Solo),75

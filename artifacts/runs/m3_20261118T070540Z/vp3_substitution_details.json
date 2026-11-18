@@ -1,0 +1,596 @@
+[
+  {
+    "ingredient": "cabai merah besar",
+    "in_vocab": true,
+    "expected": [
+      "cabai hijau",
+      "cabai merah",
+      "cabai merah keriting",
+      "cabai rawit",
+      "paprika merah"
+    ],
+    "predicted_top10": [
+      "cabai merah",
+      "cabai hijau keriting",
+      "cabai merah buang bijinya",
+      "cabai merah keriting",
+      "barang serai",
+      "cabai merah besar buang bijinya",
+      "cabai merah gede",
+      "bubuk kaldu jamur",
+      "cabai oren",
+      "cabai merah besar serong"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  },
+  {
+    "ingredient": "cabai merah keriting",
+    "in_vocab": true,
+    "expected": [
+      "cabai hijau",
+      "cabai merah",
+      "cabai merah besar",
+      "cabai rawit",
+      "cabai rawit merah"
+    ],
+    "predicted_top10": [
+      "cabai merah",
+      "cabai merah gede",
+      "cabai merah besar",
+      "cabai merah buang bijinya",
+      "cabai besar hijau",
+      "di",
+      "ajinomoto",
+      "sendok sayur minyak",
+      "barang serai",
+      "cabai rawit keriting"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  },
+  {
+    "ingredient": "cabai rawit",
+    "in_vocab": true,
+    "expected": [
+      "cabai merah",
+      "cabai merah keriting",
+      "cabai rawit hijau",
+      "cabai rawit merah",
+      "lada"
+    ],
+    "predicted_top10": [
+      "cabai rawit merah",
+      "cabai rawit setan",
+      "cabai rawit domba",
+      "cabai rawit pedas",
+      "cabai domba",
+      "cabai rawit oren",
+      "cabai galak",
+      "cabai pedas",
+      "cabai rawit oranye",
+      "cabai campur"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  },
+  {
+    "ingredient": "bawang bombay",
+    "in_vocab": true,
+    "expected": [
+      "bawang merah",
+      "bawang putih",
+      "daun bawang"
+    ],
+    "predicted_top10": [
+      "cuka putih",
+      "kaldu daging",
+      "jamur shiitake",
+      "daun prei",
+      "chicken powder",
+      "buang kulitnya",
+      "chili flakes",
+      "tetes minyak wijen",
+      "garlic oil",
+      "blok kaldu ayam"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "bawang merah",
+    "in_vocab": true,
+    "expected": [
+      "bawang bombay",
+      "bawang putih",
+      "daun bawang"
+    ],
+    "predicted_top10": [
+      "ajinomoto",
+      "bawang merah bawang putih",
+      "di",
+      "buang tengahnya",
+      "bawang merah putih",
+      "garam secukup nya",
+      "daun",
+      "air untuk memasak",
+      "cengek domba",
+      "kaldu penyedap"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "kemiri",
+    "in_vocab": true,
+    "expected": [
+      "almond",
+      "kacang mete",
+      "kacang tanah",
+      "wijen"
+    ],
+    "predicted_top10": [
+      "miri",
+      "lombok keriting",
+      "kunci",
+      "daging kambing campur",
+      "kelingking kencur",
+      "air asem",
+      "daun jeruk nipis",
+      "motto",
+      "kikil kambing",
+      "kelapa setengah tua"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "santan",
+    "in_vocab": true,
+    "expected": [
+      "kelapa parut",
+      "krimer nabati",
+      "susu cair",
+      "susu evaporasi"
+    ],
+    "predicted_top10": [
+      "santan dari kelapa",
+      "sun",
+      "santan dr kelapa",
+      "santan dari",
+      "santan murni",
+      "air santan",
+      "santan kental dari kelapa",
+      "bgks santan",
+      "kelapa tua",
+      "kelapa"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "gula merah",
+    "in_vocab": true,
+    "expected": [
+      "gula pasir",
+      "kecap manis",
+      "madu",
+      "molasses"
+    ],
+    "predicted_top10": [
+      "blok gula merah",
+      "bulatan gula merah",
+      "bulat gula merah",
+      "gandu gula merah",
+      "gula merah serut",
+      "gula merah disisir",
+      "gula kelapa",
+      "laja",
+      "cabai jablay",
+      "air untuk memasak"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "gula pasir",
+    "in_vocab": true,
+    "expected": [
+      "gula merah",
+      "madu",
+      "sirup"
+    ],
+    "predicted_top10": [
+      "kaldu bubuk non msg",
+      "gula penyedap",
+      "kaldu penyedap",
+      "agak tebal",
+      "garam gula",
+      "seasoning",
+      "kecil-kecil",
+      "bawang putih bawang merah",
+      "cabai merah besar buang bijinya",
+      "bumbu-bumbu"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "mentega",
+    "in_vocab": true,
+    "expected": [
+      "margarin",
+      "minyak goreng",
+      "minyak kelapa",
+      "minyak samin"
+    ],
+    "predicted_top10": [
+      "perasan jeruk lemon",
+      "mustard",
+      "margarin untuk memanggang",
+      "daging asap",
+      "saus bolognese",
+      "salad",
+      "italian herbs",
+      "apel",
+      "lettuce",
+      "parsley flakes"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "margarin",
+    "in_vocab": true,
+    "expected": [
+      "mentega",
+      "minyak goreng",
+      "minyak samin"
+    ],
+    "predicted_top10": [
+      "susu kental manis",
+      "salad",
+      "apel",
+      "mentega",
+      "tumisan",
+      "mayo",
+      "mustard",
+      "perasan jeruk lemon",
+      "mozarella",
+      "blackpepper"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  },
+  {
+    "ingredient": "jeruk nipis",
+    "in_vocab": true,
+    "expected": [
+      "asam jawa",
+      "cuka",
+      "jeruk limau",
+      "lemon"
+    ],
+    "predicted_top10": [
+      "jeruk",
+      "air jeruk nipis",
+      "jeruk nipis ambil airnya",
+      "nipis",
+      "perasan jeruk nipis",
+      "lemon cina",
+      "jeruk sambal",
+      "dibakar",
+      "air perasan jeruk nipis",
+      "air masak"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "asam jawa",
+    "in_vocab": true,
+    "expected": [
+      "air asam jawa",
+      "asam kandis",
+      "belimbing wuluh",
+      "cuka",
+      "jeruk nipis"
+    ],
+    "predicted_top10": [
+      "air asam jawa",
+      "asam jawa tanpa",
+      "air asem jawa",
+      "air asam",
+      "asam",
+      "asem",
+      "mata asam jawa",
+      "air asem",
+      "cabai jablay",
+      "aren"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  },
+  {
+    "ingredient": "daun salam",
+    "in_vocab": true,
+    "expected": [
+      "daun jeruk",
+      "daun kari",
+      "serai"
+    ],
+    "predicted_top10": [
+      "lmbar daun jeruk",
+      "babat kambing",
+      "ajinomoto",
+      "air kaldu daging",
+      "jeroan sapi",
+      "bunga",
+      "buang tulang",
+      "barang serai",
+      "ikan haruan",
+      "tomat sayur"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "daun jeruk",
+    "in_vocab": true,
+    "expected": [
+      "daun kari",
+      "daun kunyit",
+      "daun salam",
+      "serai"
+    ],
+    "predicted_top10": [
+      "daun jeruk buang tulangnya",
+      "daun jeruk nipis",
+      "lmbar daun jeruk",
+      "gandu gula merah",
+      "jeruk",
+      "ikan haruan",
+      "ruang lengkuas",
+      "air masak",
+      "barang serai",
+      "seiris lengkuas"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "tepung tapioka",
+    "in_vocab": true,
+    "expected": [
+      "tepung beras",
+      "tepung ketan",
+      "tepung maizena",
+      "tepung terigu"
+    ],
+    "predicted_top10": [
+      "tepung tapioka cap pak tani",
+      "tepung tapioka pak tani gunung",
+      "tepung tapioka rosebrand",
+      "tepung tapioka pak tani",
+      "tepung tapioka cap tani gunung",
+      "tapioka cap pak tani gunung",
+      "sendok tepung tapioka",
+      "tepung terigu serba guna",
+      "tepung maizena rosebrand",
+      "tepung terigu air"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "tepung maizena",
+    "in_vocab": true,
+    "expected": [
+      "tepung beras",
+      "tepung tapioka",
+      "tepung terigu"
+    ],
+    "predicted_top10": [
+      "tepung maizena air",
+      "maizena larutkan dengan air",
+      "maizena rosebrand",
+      "tepung maizena rosebrand",
+      "tepung maizena larutkan dengan air",
+      "grm udang",
+      "tepung jagung",
+      "larutan maizena",
+      "wortel diparut",
+      "saus asam manis"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "lada",
+    "in_vocab": true,
+    "expected": [
+      "cabai rawit",
+      "ketumbar",
+      "lada hitam"
+    ],
+    "predicted_top10": [
+      "pada",
+      "merica putih",
+      "merica bulat",
+      "garam lada",
+      "ladaku merica",
+      "mrica",
+      "prei",
+      "bawang putih bawang merah",
+      "royko sapi",
+      "bubuk merica"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "kecap manis",
+    "in_vocab": true,
+    "expected": [
+      "gula merah",
+      "kecap asin",
+      "saus tiram"
+    ],
+    "predicted_top10": [
+      "kecap bangau",
+      "manis",
+      "saori tiram",
+      "pasir",
+      "saset kecap",
+      "kepala ayam",
+      "jawa",
+      "jahe keprek",
+      "saset kecap manis",
+      "ati kambing"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "daging ayam",
+    "in_vocab": true,
+    "expected": [
+      "daging kambing",
+      "daging sapi",
+      "tahu",
+      "tempe",
+      "udang"
+    ],
+    "predicted_top10": [
+      "fillet dada ayam",
+      "daging ayam fillet",
+      "ayam fillet paha",
+      "ayam paha",
+      "ayam paha atas",
+      "dada ayam tanpa tulang",
+      "paha fillet",
+      "ayam paha fillet",
+      "ayam broiler",
+      "daging dada ayam"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "tahu",
+    "in_vocab": true,
+    "expected": [
+      "daging ayam",
+      "telur ayam",
+      "tempe"
+    ],
+    "predicted_top10": [
+      "tahu kulit",
+      "tahu susu",
+      "tahu bandung",
+      "tahu coklat segitiga",
+      "tahu segitiga",
+      "tahu sutra",
+      "tahu cokelat",
+      "tempe gembus",
+      "balok tahu",
+      "royko ayam"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "tempe",
+    "in_vocab": true,
+    "expected": [
+      "jamur tiram",
+      "kacang tanah",
+      "tahu"
+    ],
+    "predicted_top10": [
+      "tempe daun",
+      "tempe gembus",
+      "tempe semangit",
+      "kulit sapi",
+      "ikan tongkol asap",
+      "royko ayam",
+      "ikan pindang",
+      "ikan asin klotok",
+      "masako rasa ayam",
+      "teri jengki"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "sawi hijau",
+    "in_vocab": true,
+    "expected": [
+      "bayam",
+      "kangkung",
+      "kubis",
+      "pakcoy",
+      "sawi putih"
+    ],
+    "predicted_top10": [
+      "sawi",
+      "daun sawi",
+      "baso",
+      "pangsit",
+      "kwetiau basah",
+      "tahu telur",
+      "baso ikan",
+      "misoa",
+      "baso sapi",
+      "tahu bakso"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "bayam",
+    "in_vocab": true,
+    "expected": [
+      "daun singkong",
+      "kangkung",
+      "sawi hijau"
+    ],
+    "predicted_top10": [
+      "edamame",
+      "rumput laut",
+      "jagung manis pipil",
+      "jagung pipil",
+      "tsp garam",
+      "rice paper",
+      "chop",
+      "nori",
+      "daun bayam",
+      "tepung jagung"
+    ],
+    "hit_at_5": false,
+    "hit_at_10": false
+  },
+  {
+    "ingredient": "kangkung",
+    "in_vocab": true,
+    "expected": [
+      "bayam",
+      "genjer",
+      "sawi hijau"
+    ],
+    "predicted_top10": [
+      "genjer",
+      "pare",
+      "leunca",
+      "cecek",
+      "bunga bawang",
+      "cabai gendot",
+      "teri jengki",
+      "ikan asin",
+      "tahu susu",
+      "cumi asin"
+    ],
+    "hit_at_5": true,
+    "hit_at_10": true
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "similarity": 0.6,
+    "price": 0.4
+  },
+  "mapping_coverage_fr_c4": {
+    "total_vocab_ingredients": 1334,
+    "mapped_vocab_ingredients": 14,
+    "vocab_coverage_pct": 1.05,
+    "total_recipe_mentions": 783564,
+    "mapped_recipe_mentions": 217380,
+    "mention_coverage_pct": 27.74
+  },
+  "n_eval_cases": 10,
+  "cases_with_candidates": 10
+}

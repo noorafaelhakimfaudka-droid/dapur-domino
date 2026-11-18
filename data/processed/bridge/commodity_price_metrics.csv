@@ -1,0 +1,11 @@
+comcat_id,region_name,latest_date,latest_price_idr,pct_change_30d,volatility_30d,price_stability_score
+cat_1,Semua Provinsi,2026-11-18,16550.0,0.91,0.001843,0.9818
+cat_10,Semua Provinsi,2026-11-18,20150.0,2.28,0.00372,0.9594
+cat_2,Semua Provinsi,2026-11-18,38750.0,-6.51,0.004224,0.9791
+cat_3,Semua Provinsi,2026-11-18,149500.0,0.4,0.003408,0.9792
+cat_4,Semua Provinsi,2026-11-18,29000.0,-2.52,0.001772,0.9912
+cat_5,Semua Provinsi,2026-11-18,38700.0,4.74,0.004921,0.9306
+cat_6,Semua Provinsi,2026-11-18,38500.0,-0.77,0.00648,0.9681
+cat_7,Semua Provinsi,2026-11-18,77650.0,-2.76,0.014083,0.932
+cat_8,Semua Provinsi,2026-11-18,87250.0,-3.96,0.010991,0.9465
+cat_9,Semua Provinsi,2026-11-18,23100.0,0.22,0.003247,0.9818

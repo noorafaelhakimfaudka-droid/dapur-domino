@@ -7,15 +7,18 @@ __pycache__/
 .ruff_cache/
 .mypy_cache/
 
-# data mentah & hasil olahan tidak di-commit; manifest/hash yang di-commit
+# data mentah & data antara tidak di-commit; manifest, data olahan UI, & 4 run final yang di-commit
 data/raw/**
 !data/raw/.gitkeep
 !data/raw/manifest.json
 data/interim/**
-data/processed/**
 !data/**/.gitkeep
-artifacts/runs/**
+artifacts/runs/*
 !artifacts/runs/.gitkeep
+!artifacts/runs/m1_20261118T080609Z/
+!artifacts/runs/m2_20261118T080707Z/
+!artifacts/runs/m3_20261118T070540Z/
+!artifacts/runs/m4_20261118T080802Z/
 
 # file sistem & lock sementara
 .DS_Store

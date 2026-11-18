@@ -1,0 +1,11 @@
+case_id,target_ingredient,scenario,n_candidates,n_price_mapped_candidates,top_candidate,top_price_status,top_combined_score,top_recipe_sub_score
+C01,cabai merah keriting,Lonjakan harga cabai merah keriting,10,2,cabai merah,mapped,0.8284,0.7593
+C02,cabai rawit,Lonjakan harga cabai rawit,10,1,cabai rawit merah,mapped,0.8707,0.8201
+C03,bawang merah,Kenaikan harga bawang merah menjelang lebaran,10,0,ajinomoto,unmapped,,0.5954
+C04,bawang putih,Kenaikan harga bawang putih impor,10,0,di,unmapped,,0.592
+C05,daging ayam,Kenaikan harga daging ayam ras,10,0,fillet dada ayam,unmapped,,0.8001
+C06,telur ayam,Kenaikan harga telur ayam,10,0,telur kocok,unmapped,,0.5727
+C07,minyak goreng,Kenaikan harga minyak goreng,10,0,sy,unmapped,,0.6078
+C08,gula pasir,Kenaikan harga gula pasir,10,0,kaldu bubuk non msg,unmapped,,0.5181
+C09,kemiri,Bahan tanpa pemetaan harga PIHPS (uji kejujuran unmapped),10,0,miri,unmapped,,0.74
+C10,santan,Bahan tanpa pemetaan harga PIHPS (uji kejujuran unmapped),10,0,santan dari kelapa,unmapped,,0.7763

@@ -1,0 +1,41 @@
+{
+  "train_rows": 500,
+  "total_return_rows": 796,
+  "commodity_domino_raw": {
+    "pairs_tested": 90,
+    "significant_edges": 50
+  },
+  "commodity_domino_seasonal_adj": {
+    "pairs_tested": 90,
+    "significant_edges": 56
+  },
+  "vp5_permutation_control": {
+    "n_permutations": 20,
+    "total_pairs_per_run": 90,
+    "fdr_alpha": 0.05,
+    "mean_false_edges": 3.1,
+    "max_false_edges": 9,
+    "mean_false_edge_rate": 0.034444,
+    "max_false_edge_rate": 0.1
+  },
+  "vp6_walk_forward_raw": {
+    "targets_with_triggers": 10,
+    "targets_vp6_validated": 2,
+    "mean_skill_vs_ar_pct": 0.1795
+  },
+  "vp6_walk_forward_seasonal_adj": {
+    "targets_with_triggers": 10,
+    "targets_vp6_validated": 2,
+    "mean_skill_vs_ar_pct": 1.7557
+  },
+  "vp7_seasonal_robustness": {
+    "base_significant_edges": 50,
+    "adjusted_significant_edges": 56,
+    "survived_edges": 50,
+    "retention_pct_of_base": 100.0,
+    "new_only_after_adjustment": 6,
+    "dropped_after_adjustment": 0
+  },
+  "spatial_province_commodities_analyzed": 10,
+  "spatial_city_commodities_analyzed": 3
+}
