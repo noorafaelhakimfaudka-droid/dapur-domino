@@ -1,0 +1,36 @@
+{
+  "schema": "DAPUR_DOMINO_DS_LIFECYCLE_AUDIT_V1",
+  "runs_used": {
+    "m1": "m1_20261118T080609Z",
+    "m2": "m2_20261118T080707Z",
+    "m3": "m3_20261118T070540Z",
+    "m4": "m4_20261118T080802Z"
+  },
+  "table_row_counts": {
+    "business_objectives": 4,
+    "technical_objectives": 7,
+    "eda_prices_commodities": 10,
+    "eda_recipes_aspects": 5,
+    "validation_checks": 6,
+    "selection_decisions": 6,
+    "cleaning_stages": 5,
+    "engineered_feature_groups": 6,
+    "timeseries_scenarios": 8,
+    "bridge_scenarios": 5,
+    "registered_models": 8,
+    "vp3_evaluated_items": 25,
+    "commodity_review_decisions": 10
+  },
+  "vp3_additional_ranking_metrics": {
+    "mrr_at_10": 0.21,
+    "ndcg_at_5_pct": 9.37,
+    "ndcg_at_10_pct": 9.37
+  },
+  "review_decision_counts": {
+    "FALLBACK_KE_AR5_UNIVARIAT (Jangan Klaim Sinyal Domino)": 5,
+    "FALLBACK_KE_NAIVE_RANDOM_WALK (Sinyal Sangat Stasioner/Datar)": 2,
+    "DEPLOY_DOMINO_ARX5_SEASONAL (Menang Pasca-Kontrol Musiman)": 1,
+    "DEPLOY_DOMINO_ARX5 (Konsisten Menang di Raw & Musiman)": 1,
+    "DEPLOY_DOMINO_ARX5_RAW (Menang di Return Mentah)": 1
+  }
+}

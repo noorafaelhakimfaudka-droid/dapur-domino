@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --cream: #FBF3E4;
+  --paper: #FFFBF2;
+  --ink: #2E1D15;
+  --soft: #7A6556;
+  --line: #EAD9BE;
+  --cabai: #D5352B;
+  --cabai-bg: #FDE6E1;
+  --kunyit: #F2A81D;
+  --kunyit-bg: #FFF0CC;
+  --daun: #3B7A4B;
+  --daun-bg: #E2F1E0;
+  --kecap: #4A2A1B;
+  --r: 18px;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html, body, [class*="css"] {
+  font-family: var(--body);
+  color: var(--ink);
+}
+
+.stApp {
+  background-color: var(--cream);
+  color: var(--ink);
+}
+
+/* Hide default Streamlit sidebar and chrome completely for top-nav layout */
+section[data-testid="stSidebar"],
+[data-testid="collapsedControl"],
+header[data-testid="stHeader"] {
+  display: none !important;
+}
+
+.block-container {
+  max-width: 1080px !important;
+  padding-top: 1.4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+h1, h2, h3, .dd-h1, .dd-h2, .dd-h3 {
+  font-family: var(--display) !important;
+  font-weight: 800 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--ink) !important;
+}
+
+.dd-h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin: 10px 0 8px 0;
+}
+
+.dd-h2 {
+  font-size: 1.42rem;
+  margin: 20px 0 8px 0;
+}
+
+.dd-h3 {
+  font-size: 1.08rem;
+  margin: 0 0 4px 0;
+}
+
+.dd-lead {
+  color: var(--soft);
+  max-width: 62ch;
+  margin: 4px 0 24px 0;
+  font-size: 1rem;
+}
+
+/* Top Brand & Navigation Bar */
+.dd-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 800 1.25rem var(--display);
+  color: var(--ink);
+  padding-top: 6px;
+}
+
+.dd-tile {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  width: 34px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--ink);
+  gap: 2px;
+  padding: 2px;
+  transform: rotate(-8deg);
+}
+
+.dd-tile i {
+  background: var(--paper);
+  border-radius: 3px;
+  position: relative;
+  display: block;
+}
+
+.dd-tile i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cabai);
+}
+
+.dd-tile i + i::after {
+  background: var(--ink);
+}
+
+.dd-nav-divider {
+  border: 0;
+  border-bottom: 1.5px solid var(--line);
+  margin: 6px 0 24px 0;
+}
+
+/* Style top horizontal st.radio as Claude Design pill navbar */
+div[data-testid="stRadio"] > div[role="radiogroup"] {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label {
+  background: transparent !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 999px !important;
+  padding: 7px 15px !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease;
+  margin: 0 !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:hover {
+  background: var(--kunyit-bg) !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label > div:first-child {
+  display: none !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label p {
+  font-weight: 600 !important;
+  font-size: 0.92rem !important;
+  color: var(--soft) !important;
+  margin: 0 !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) p {
+  color: var(--paper) !important;
+}
+
+/* Cards & Grids */
+.dd-card {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r);
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.dd-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.dd-g3 {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.dd-g2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.dd-muted {
+  color: var(--soft);
+  font-size: 0.88rem;
+}
+
+.dd-big {
+  font: 800 1.95rem var(--display);
+  color: var(--ink);
+  margin: 4px 0;
+}
+
+.dd-up {
+  color: var(--cabai);
+  font-weight: 700;
+}
+
+.dd-down {
+  color: var(--daun);
+  font-weight: 700;
+}
+
+/* Pills & Notes */
+.dd-pill {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dd-p-ok {
+  background: var(--daun-bg);
+  color: var(--daun);
+}
+
+.dd-p-no {
+  background: var(--cabai-bg);
+  color: var(--cabai);
+}
+
+.dd-p-warn {
+  background: var(--kunyit-bg);
+  color: #8A5A00;
+}
+
+.dd-note {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  margin: 14px 0 22px 0;
+}
+
+.dd-note.warn {
+  background: var(--kunyit-bg);
+  border: 1.5px solid var(--kunyit);
+}
+
+.dd-note.sci {
+  background: var(--cabai-bg);
+  border: 1.5px solid var(--cabai);
+}
+
+.dd-note b {
+  white-space: nowrap;
+}
+
+/* Price Strip */
+.dd-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 14px 2px;
+  margin-bottom: 14px;
+}
+
+.dd-pc {
+  flex: 0 0 148px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.dd-pc.hl {
+  border-color: var(--cabai);
+  background: var(--cabai-bg);
+}
+
+.dd-pc b {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+
+.dd-pc span {
+  font: 800 1.05rem var(--display);
+  display: block;
+  margin: 2px 0;
+}
+
+/* Domino Candidate Card */
+.dd-dom {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 3px 4px 0 var(--ink);
+  margin-bottom: 14px;
+}
+
+.dd-dom > div {
+  padding: 16px 18px;
+}
+
+.dd-dom > div + div {
+  border-left: 2px dashed var(--ink);
+  min-width: 165px;
+  background: var(--cream);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dd-dom.un {
+  border-color: var(--soft);
+  box-shadow: 3px 4px 0 var(--line);
+}
+
+.dd-dom.un > div + div {
+  border-left-color: var(--soft);
+}
+
+.dd-score {
+  font: 800 1.85rem var(--display);
+}
+
+.dd-meter {
+  height: 7px;
+  background: var(--line);
+  border-radius: 9px;
+  margin: 8px 0 4px 0;
+  overflow: hidden;
+}
+
+.dd-meter i {
+  display: block;
+  height: 100%;
+  background: var(--daun);
+  border-radius: 9px;
+}
+
+.dd-facts {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 0.84rem;
+  color: var(--soft);
+}
+
+/* Chips */
+.dd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 16px 0;
+}
+
+.dd-chip {
+  border: 1.5px solid var(--daun);
+  background: var(--daun);
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-weight: 600;
+  font-size: 0.86rem;
+}
+
+/* Tables & RAM meter */
+.dd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dd-table th {
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--soft);
+  padding: 8px 10px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.dd-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dd-bar-c {
+  height: 9px;
+  border-radius: 9px;
+  background: var(--daun);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dd-ram {
+  height: 10px;
+  background: var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  margin: 10px 0 4px 0;
+}
+
+.dd-ram i {
+  display: block;
+  height: 100%;
+  background: var(--kunyit);
+  min-width: 3px;
+}
+
+.dd-footer {
+  border-top: 1.5px solid var(--line);
+  padding: 18px 0 8px 0;
+  margin-top: 36px;
+  color: var(--soft);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  .dd-dom {
+    grid-template-columns: 1fr;
+  }
+  .dd-dom > div + div {
+    border-left: 0;
+    border-top: 2px dashed var(--ink);
+  }
+}

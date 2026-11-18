@@ -1,0 +1,8 @@
+tech_objective_id,linked_business_id,ds_problem_type,metric_name,target_threshold,measured_result,status
+TDO-1,"BO-1, BO-3",NLP Rule-Based & Dictionary Text Normalization,VP1 Clean Normalization Accuracy (n=300 eval sample),>= 90.0%,90.33% (271/300),TERCAPAI (VERIFIED)
+TDO-2,BO-3,Graph Association (NPMI/Louvain) & Conditional Ranking,VP2 Hide-One-Ingredient Top-5 Accuracy vs Popularity,> Popularity baseline with disjoint 95% Wilson CI,45.50% vs 40.88%,TERCAPAI (VERIFIED)
+TDO-3,BO-1,Skip-Gram Word2Vec Embedding & Complement-Penalized Similarity,VP3 Substitution Recall@5 on 25 Culinary Reference Pairs,Dilaporkan secara jujur beserta analisis error,24.0% (6/25),TERUKUR & DIEVALUASI JUJUR
+TDO-4,BO-2,Time-Series Log-Return Stationarity (ADF + KPSS),VP4 Joint Stationarity Pass Rate (ADF p<0.05 & KPSS p>=0.05),Mayoritas (>85%) seri lulus uji ganda,"Nas 90.0%, Prov 98.24%, Kota 98.00%",TERCAPAI (VERIFIED)
+TDO-5,BO-2,Granger Causality Network + BH-FDR + Permutation Control,VP5 False Edge Rate (20x Circular Shift) & VP7 Seasonal Retention,VP5 <= 5.0% FDR alpha; VP7 dilaporkan,VP5=3.44% (<=5%); VP7=100% (50/50 bertahan),TERCAPAI (VERIFIED)
+TDO-6,"BO-2, BO-4",Out-of-Sample Walk-Forward ARX(5) Ridge vs AR(5) & Naive,VP6 Out-of-Sample RMSE & Diebold-Mariano Test (296 hari uji),Validasi selektif per komoditas (tanpa klaim berlebihan),"2/10 lolos penuh di Raw (Daging Sapi, Minyak Goreng) & 2/10 di Musiman (Beras, Daging Sapi)",TERCAPAI SELEKTIF (VERIFIED)
+TDO-7,"BO-1, BO-4",Multi-Criteria Price-Aware Substitution Scoring,FR-C4 Recipe Mention Coverage & Unmapped Honesty,Cakupan kemunculan resep >= 25%; 0 harga fiktif,27.74% kemunculan resep (217.380/783.564),TERCAPAI (VERIFIED)

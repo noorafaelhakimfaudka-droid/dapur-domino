@@ -1,0 +1,7 @@
+data_object,selection_decision,volume_selected,rationale
+Sumber Harga Harian (D1: PIHPS Bank Indonesia),DIPILIH (Utama),1.141.526 observasi (10 komoditas x 796 hari kerja),"Satu-satunya sumber resmi harian yang mencakup Nasional, 34 Provinsi, dan 105 Kota/Kabupaten di Pasar Tradisional."
+Sumber Indeks Bulanan (D2: Open Data Bapanas),PEMBANDING (Tidak digabung ke deret harian),130 baris sampel indikator bulanan,Berfrekuensi bulanan sehingga tidak cocok untuk uji lead-lag harian 1-5 hari kerja.
+Seri Kota/Kabupaten dengan Missingness > 20%,DIEKSKLUSI (50 dari 1.099 seri kota),1049 seri kota dipertahankan,Mencegah distorsi autokorelasi akibat forward-fill beruntun pada kota yang tidak aktif melapor.
+Pembagian Waktu Deret Harga (Chronological Split),"Train [0:400], Val [400:500], Test [500:796]",500 hari pengembangan (400 sub-train + 100 val) & 296 hari uji,Menjaga urutan kausal waktu (0% look-ahead bias); penemuan graf Granger dikunci di [:500] dan seleksi skenario di [400:500].
+Korpus Resep Masakan (D3: junwatu/indonesian-recipes),DIPILIH (Train 66.419 + Eval 3.496 resep),69.915 resep (897.519 baris bahan mentah),"Ukuran besar, berbahasa Indonesia asli, dan sudah memiliki split evaluasi terpisah."
+Kosakata Bahan Resep (Filter min_ingredient_freq >= 20),DIPILIH 1.334 bahan kanonik,"Mencakup 783,564 dari 852,568 baris (91.91% total pemakaian bahan)",Memangkas salah ketik langka (<20 resep) sambil mempertahankan >91% informasi kemunculan bahan untuk stabilitas NPMI & Word2Vec.

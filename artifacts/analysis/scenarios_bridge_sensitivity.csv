@@ -1,0 +1,6 @@
+scenario_id,w_similarity,w_price,description,targets_evaluated,targets_with_mapped_candidate,mean_best_mapped_recipe_sim,mean_best_mapped_price_stability,harmonic_balance_index
+BW-1,1.0,0.0,Murni Kemiripan Resep (Abaikan Harga),14,5,0.8248,0.9378,0.8777
+BW-2,0.8,0.2,Dominan Resep (80% Resep / 20% Harga),14,5,0.8248,0.9378,0.8777
+BW-3,0.6,0.4,Seimbang Sadar-Harga (60% Resep / 40% Harga - DIPILIH),14,5,0.8248,0.9378,0.8777
+BW-4,0.5,0.5,Bobot Setara (50% Resep / 50% Harga),14,5,0.8248,0.9378,0.8777
+BW-5,0.3,0.7,Dominan Harga (30% Resep / 70% Harga),14,5,0.8248,0.9378,0.8777

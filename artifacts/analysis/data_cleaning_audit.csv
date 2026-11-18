@@ -1,0 +1,6 @@
+cleaning_stage,raw_input_issue,cleaning_rule,output_impact
+1. Parsing Angka & Tanggal PIHPS (ingest/pihps.py),"Harga berformat string '58,450' atau '-', spasi ekor pada nama","Hapus koma ribuan, konversi '-' ke NaN, strip whitespace nama","1,141,526 record bersih terstruktur di long panel."
+2. Penyelarasan Hari Kerja & Hari Libur (cleaning/prices.py),Hari libur nasional seluruh pasar kosong (NaN >= 90% seri),Reindex ke frekuensi 'B' (Senin-Jumat) & drop tanggal missing >=90%,Dari 804 hari kerja menjadi 796 hari pasar buka.
+3. Penanganan Missing Value Terbatas (cleaning/prices.py),Celah 1-3 hari pada pelaporan kota & seri pasif >20% kosong,"Drop seri missing >20%, lalu forward-fill maksimal 3 hari kerja",1049 seri kota bersih; 50 seri pasif dibuang.
+4. Pembersihan Kuantitas & Satuan Resep (cleaning/ingredients.py),"Teks seperti '250 gr dada ayam fillet (potong dadu), cuci bersih'","Hapus isi kurung, angka/pecahan, 80+ satuan dapur, & kata kerja","Memproses 852,568 baris latih & 44,951 baris uji."
+5. Pemisahan Bahan Majemuk & Kamus Sinonim (ingredient_synonyms.csv),"Baris gabungan 'garam dan gula secukupnya', 'baput', 'cabe ijo'","Split konjungsi (, / & dan atau) + pemetaan 236 entri sinonim","Menghasilkan 1.334 bahan kanonik dengan akurasi audit VP1 90,33%."

@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      - name: Install Python 3.12 and dependencies
+        run: |
+          uv python install 3.12
+          uv sync --extra dev --frozen
+      - name: Lint (ruff)
+        run: uv run ruff check src tests scripts
+      - name: Typecheck (mypy)
+        run: uv run mypy src tests scripts
+      - name: Run tests (pytest)
+        run: uv run pytest -v

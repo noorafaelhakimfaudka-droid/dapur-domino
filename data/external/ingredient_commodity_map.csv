@@ -1,0 +1,15 @@
+canonical_ingredient,comcat_id,commodity_name,mapping_note
+beras,cat_1,Beras,Kecocokan langsung bahan pokok beras
+daging ayam,cat_2,Daging Ayam,Kecocokan langsung daging ayam ras
+daging sapi,cat_3,Daging Sapi,Kecocokan langsung daging sapi
+telur ayam,cat_4,Telur Ayam,Kecocokan langsung telur ayam ras
+bawang merah,cat_5,Bawang Merah,Kecocokan langsung bawang merah
+bawang putih,cat_6,Bawang Putih,Kecocokan langsung bawang putih
+cabai merah,cat_7,Cabai Merah,Kategori umum cabai merah
+cabai merah besar,cat_7,Cabai Merah,Varian cabai merah besar pada PIHPS cat_7
+cabai merah keriting,cat_7,Cabai Merah,Varian cabai merah keriting pada PIHPS cat_7
+cabai rawit,cat_8,Cabai Rawit,Kategori umum cabai rawit
+cabai rawit merah,cat_8,Cabai Rawit,Varian cabai rawit merah pada PIHPS cat_8
+cabai rawit hijau,cat_8,Cabai Rawit,Varian cabai rawit hijau pada PIHPS cat_8
+minyak goreng,cat_9,Minyak Goreng,Kecocokan langsung minyak goreng
+gula pasir,cat_10,Gula Pasir,Kecocokan langsung gula pasir

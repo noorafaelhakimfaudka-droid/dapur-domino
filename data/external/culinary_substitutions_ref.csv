@@ -1,0 +1,26 @@
+ingredient,expected_substitutes,culinary_rationale
+cabai merah besar,cabai merah keriting|cabai merah|cabai rawit|cabai hijau|paprika merah,Fungsi pedas/warna merah serupa
+cabai merah keriting,cabai merah besar|cabai merah|cabai rawit merah|cabai rawit|cabai hijau,Fungsi pedas dan warna serupa
+cabai rawit,cabai rawit merah|cabai rawit hijau|cabai merah keriting|cabai merah|lada,Sumber rasa pedas
+bawang bombay,bawang merah|bawang putih|daun bawang,Aromatik keluarga allium
+bawang merah,bawang bombay|bawang putih|daun bawang,Aromatik keluarga allium
+kemiri,kacang tanah|kacang mete|almond|wijen,Pengental dan gurih bumbu halus
+santan,susu cair|susu evaporasi|kelapa parut|krimer nabati,Pemberi rasa gurih berlemak
+gula merah,gula pasir|madu|kecap manis|molasses,Pemanis karamelisasi
+gula pasir,gula merah|madu|sirup,Pemanis umum
+mentega,margarin|minyak goreng|minyak kelapa|minyak samin,Lemak panggang/tumis
+margarin,mentega|minyak goreng|minyak samin,Lemak tumis/panggang
+jeruk nipis,jeruk limau|lemon|cuka|asam jawa,Pemberi rasa asam segar
+asam jawa,air asam jawa|belimbing wuluh|jeruk nipis|cuka|asam kandis,Pemberi rasa asam kuah/tumis
+daun salam,daun jeruk|daun kari|serai,Daun aromatik tumis/kuah
+daun jeruk,daun salam|serai|daun kunyit|daun kari,Daun aromatik sitrus
+tepung tapioka,tepung maizena|tepung beras|tepung terigu|tepung ketan,Pengental / perekat adonan
+tepung maizena,tepung tapioka|tepung beras|tepung terigu,Pengental saus / perenyah
+lada,lada hitam|ketumbar|cabai rawit,Penghangat / pedas ringan
+kecap manis,kecap asin|saus tiram|gula merah,Pemberi warna & umami manis
+daging ayam,daging sapi|daging kambing|udang|tahu|tempe,Sumber protein utama
+tahu,tempe|telur ayam|daging ayam,Protein nabati/serbaguna
+tempe,tahu|kacang tanah|jamur tiram,Protein nabati
+sawi hijau,sawi putih|kangkung|bayam|kubis|pakcoy,Sayuran hijau tumis/kuah
+bayam,kangkung|sawi hijau|daun singkong,Sayuran daun hijau
+kangkung,bayam|sawi hijau|genjer,Sayuran hijau tumis

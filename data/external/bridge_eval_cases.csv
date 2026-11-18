@@ -1,0 +1,11 @@
+case_id,target_ingredient,scenario,split
+C01,cabai merah keriting,Lonjakan harga cabai merah keriting,eval
+C02,cabai rawit,Lonjakan harga cabai rawit,eval
+C03,bawang merah,Kenaikan harga bawang merah menjelang lebaran,eval
+C04,bawang putih,Kenaikan harga bawang putih impor,eval
+C05,daging ayam,Kenaikan harga daging ayam ras,eval
+C06,telur ayam,Kenaikan harga telur ayam,eval
+C07,minyak goreng,Kenaikan harga minyak goreng,eval
+C08,gula pasir,Kenaikan harga gula pasir,eval
+C09,kemiri,Bahan tanpa pemetaan harga PIHPS (uji kejujuran unmapped),eval
+C10,santan,Bahan tanpa pemetaan harga PIHPS (uji kejujuran unmapped),eval

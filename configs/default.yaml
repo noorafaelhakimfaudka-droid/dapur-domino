@@ -1,0 +1,61 @@
+# Config awal. Nilai di bawah adalah USULAN, bukan hasil tuning.
+# Perubahan setelah melihat hasil evaluasi harus dicatat sebagai deviasi di docs/.
+seed: 42
+
+prices:
+  price_type_id: 1           # 1 = Pasar Tradisional (PIHPS)
+  commodities:               # 10 kategori terverifikasi dari PIHPS (DEV-1)
+    - cat_1   # Beras
+    - cat_2   # Daging Ayam
+    - cat_3   # Daging Sapi
+    - cat_4   # Telur Ayam
+    - cat_5   # Bawang Merah
+    - cat_6   # Bawang Putih
+    - cat_7   # Cabai Merah
+    - cat_8   # Cabai Rawit
+    - cat_9   # Minyak Goreng
+    - cat_10  # Gula Pasir
+  calendar: business_days    # Senin-Jumat saja (DEV-2), libur tetap NaN/ditandai
+  history_start_month: "2023-11"
+  history_end_month: "2026-11"
+  cleaning:
+    national_holiday_missing_threshold: 0.90
+    max_series_missing_pct: 0.20
+    max_ffill_gap: 3
+    outlier_abs_log_return: 0.65
+  transform: log_return
+  stationarity_tests: [adf, kpss]
+  stationarity_alpha: 0.05
+  min_stationarity_obs: 30
+  granger_lag: 5             # 5 hari kerja = 1 minggu perdagangan
+  xcorr_max_lag: 10          # 10 hari kerja = 2 minggu perdagangan
+  fdr_alpha: 0.05
+  permutation_runs: 20
+  arx_ridge_alpha: 1.0       # regularisasi L2 ringan untuk ARX agar tidak overfit
+  seasonal_control: [none, calendar_holiday]
+  holiday_file: data/external/hari_raya_id.csv
+
+recipes:
+  min_ingredient_freq: 20
+  min_pair_count: 10
+  min_npmi: 0.05
+  association_metric: npmi   # PMI ternormalisasi
+  community_algorithm: louvain
+  embedding:
+    method: word2vec
+    dim: 64
+    window: 10
+    min_count: 20
+
+bridge:
+  weights:                   # ditetapkan sebelum evaluasi, tidak disetel pada data uji
+    similarity: 0.6
+    price: 0.4
+  mapping_file: data/external/ingredient_commodity_map.csv
+
+evaluation:
+  walk_forward:
+    initial_train_days: 500  # ~2 tahun data latih, menyisakan ~282 hari kerja untuk uji (DEV-5)
+    step_days: 1
+    horizon_days: 1
+  baselines: [naive_last, ar, popularity]

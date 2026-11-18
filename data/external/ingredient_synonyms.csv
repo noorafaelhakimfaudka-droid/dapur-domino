@@ -1,0 +1,237 @@
+variant,canonical,category
+cabe,cabai,bumbu_pedas
+cabe merah,cabai merah,bumbu_pedas
+cabe merah besar,cabai merah besar,bumbu_pedas
+cabai merah besar,cabai merah besar,bumbu_pedas
+cabe merah keriting,cabai merah keriting,bumbu_pedas
+cabe keriting merah,cabai merah keriting,bumbu_pedas
+cabe merah kriting,cabai merah keriting,bumbu_pedas
+cabe keriting,cabai merah keriting,bumbu_pedas
+cabe kriting,cabai merah keriting,bumbu_pedas
+cabai keriting,cabai merah keriting,bumbu_pedas
+lombok merah,cabai merah,bumbu_pedas
+cabe rawit,cabai rawit,bumbu_pedas
+rawit,cabai rawit,bumbu_pedas
+rawit merah,cabai rawit merah,bumbu_pedas
+cabe rawit merah,cabai rawit merah,bumbu_pedas
+cabe rawit hijau,cabai rawit hijau,bumbu_pedas
+cabe rawit setan,cabai rawit merah,bumbu_pedas
+cabai setan,cabai rawit merah,bumbu_pedas
+cabe setan,cabai rawit merah,bumbu_pedas
+cabe jablay,cabai rawit merah,bumbu_pedas
+cabe hijau,cabai hijau,bumbu_pedas
+cabe ijo,cabai hijau,bumbu_pedas
+cabai ijo,cabai hijau,bumbu_pedas
+lombok ijo,cabai hijau,bumbu_pedas
+lombok,cabai rawit,bumbu_pedas
+bawang merah,bawang merah,bumbu_dasar
+brambang,bawang merah,bumbu_dasar
+bawang putih,bawang putih,bumbu_dasar
+baput,bawang putih,bumbu_dasar
+bamer,bawang merah,bumbu_dasar
+bawang bombay,bawang bombay,bumbu_dasar
+bawang bombai,bawang bombay,bumbu_dasar
+bombay,bawang bombay,bumbu_dasar
+bawang daun,daun bawang,bumbu_aromatik
+daun bawang,daun bawang,bumbu_aromatik
+loncang,daun bawang,bumbu_aromatik
+daun seledri,seledri,bumbu_aromatik
+seledri,seledri,bumbu_aromatik
+sereh,serai,bumbu_aromatik
+sere,serai,bumbu_aromatik
+serai,serai,bumbu_aromatik
+laos,lengkuas,bumbu_aromatik
+lengkuas,lengkuas,bumbu_aromatik
+jahe,jahe,bumbu_aromatik
+kunyit,kunyit,bumbu_aromatik
+kunir,kunyit,bumbu_aromatik
+kencur,kencur,bumbu_aromatik
+temu kunci,temu kunci,bumbu_aromatik
+daun salam,daun salam,bumbu_aromatik
+salam,daun salam,bumbu_aromatik
+daun jeruk,daun jeruk,bumbu_aromatik
+daun jeruk purut,daun jeruk,bumbu_aromatik
+daun kemangi,daun kemangi,bumbu_aromatik
+kemangi,daun kemangi,bumbu_aromatik
+jeruk nipis,jeruk nipis,bumbu_asam
+jeruk limau,jeruk limau,bumbu_asam
+jeruk purut,jeruk purut,bumbu_asam
+asam jawa,asam jawa,bumbu_asam
+asem jawa,asam jawa,bumbu_asam
+kemiri,kemiri,bumbu_dasar
+ketumbar,ketumbar,rempah
+jinten,jintan,rempah
+jintan,jintan,rempah
+merica,lada,rempah
+lada,lada,rempah
+ladaku,lada,rempah
+lada putih,lada,rempah
+lada hitam,lada hitam,rempah
+pala,pala,rempah
+cengkeh,cengkih,rempah
+cengkih,cengkih,rempah
+kayu manis,kayu manis,rempah
+kayumanis,kayu manis,rempah
+kapulaga,kapulaga,rempah
+bunga lawang,bunga lawang,rempah
+pekak,bunga lawang,rempah
+terasi,terasi,bumbu_umami
+trasi,terasi,bumbu_umami
+petis,petis,bumbu_umami
+garam,garam,bumbu_dasar
+gula,gula pasir,pemanis
+gula pasir,gula pasir,pemanis
+gula putih,gula pasir,pemanis
+gula merah,gula merah,pemanis
+gula jawa,gula merah,pemanis
+gula aren,gula merah,pemanis
+kecap,kecap manis,saus
+kecap manis,kecap manis,saus
+kecap asin,kecap asin,saus
+kecap inggris,kecap inggris,saus
+saos tiram,saus tiram,saus
+saus tiram,saus tiram,saus
+saos sambal,saus sambal,saus
+saus sambal,saus sambal,saus
+saos tomat,saus tomat,saus
+saus tomat,saus tomat,saus
+minyak goreng,minyak goreng,lemak
+minyak,minyak goreng,lemak
+minyak sayur,minyak goreng,lemak
+minyak kelapa,minyak goreng,lemak
+margarin,margarin,lemak
+margarine,margarin,lemak
+mentega,mentega,lemak
+butter,mentega,lemak
+santan,santan,lemak_nabati
+santan instan,santan,lemak_nabati
+santan kara,santan,lemak_nabati
+santan kental,santan,lemak_nabati
+santan cair,santan,lemak_nabati
+santan encer,santan,lemak_nabati
+kelapa parut,kelapa parut,lemak_nabati
+telur,telur ayam,protein
+telor,telur ayam,protein
+telur ayam,telur ayam,protein
+telur puyuh,telur puyuh,protein
+telur asin,telur asin,protein
+daging ayam,daging ayam,protein
+ayam,daging ayam,protein
+dada ayam,daging ayam,protein
+paha ayam,daging ayam,protein
+sayap ayam,daging ayam,protein
+fillet ayam,daging ayam,protein
+ayam fillet,daging ayam,protein
+dada ayam fillet,daging ayam,protein
+paha ayam fillet,daging ayam,protein
+ayam kampung,daging ayam,protein
+daging sapi,daging sapi,protein
+sapi,daging sapi,protein
+daging,daging sapi,protein
+tetelan sapi,daging sapi,protein
+iga sapi,daging sapi,protein
+udang,udang,protein
+ikan teri,ikan teri,protein
+teri,ikan teri,protein
+tahu,tahu,protein_nabati
+tahu putih,tahu,protein_nabati
+tahu kuning,tahu,protein_nabati
+tahu pong,tahu,protein_nabati
+tahu coklat,tahu,protein_nabati
+tahu goreng,tahu,protein_nabati
+tempe,tempe,protein_nabati
+tepung terigu,tepung terigu,karbohidrat
+terigu,tepung terigu,karbohidrat
+tepung tapioka,tepung tapioka,karbohidrat
+tapioka,tepung tapioka,karbohidrat
+tepung kanji,tepung tapioka,karbohidrat
+aci,tepung tapioka,karbohidrat
+tepung sagu,tepung tapioka,karbohidrat
+tepung beras,tepung beras,karbohidrat
+tepung maizena,tepung maizena,karbohidrat
+maizena,tepung maizena,karbohidrat
+tepung ketan,tepung ketan,karbohidrat
+tepung roti,tepung panir,karbohidrat
+tepung panir,tepung panir,karbohidrat
+beras,beras,karbohidrat
+nasi,nasi,karbohidrat
+nasi putih,nasi,karbohidrat
+mie telur,mie,karbohidrat
+mi,mie,karbohidrat
+mie,mie,karbohidrat
+bihun,bihun,karbohidrat
+soun,soun,karbohidrat
+tomat,tomat,sayur
+tomat merah,tomat,sayur
+tomat hijau,tomat hijau,sayur
+wortel,wortel,sayur
+kentang,kentang,sayur
+kol,kubis,sayur
+kubis,kubis,sayur
+sawi hijau,sawi hijau,sayur
+caisim,sawi hijau,sayur
+sawi putih,sawi putih,sayur
+kangkung,kangkung,sayur
+bayam,bayam,sayur
+buncis,buncis,sayur
+kacang panjang,kacang panjang,sayur
+tauge,tauge,sayur
+toge,tauge,sayur
+taoge,tauge,sayur
+terong,terong,sayur
+timun,mentimun,sayur
+mentimun,mentimun,sayur
+labu siam,labu siam,sayur
+kacang tanah,kacang tanah,kacang
+penyedap rasa,kaldu bubuk,penyedap
+penyedap,kaldu bubuk,penyedap
+kaldu bubuk,kaldu bubuk,penyedap
+kaldu,kaldu bubuk,penyedap
+kaldu jamur,kaldu bubuk,penyedap
+kaldu ayam,kaldu bubuk,penyedap
+kaldu sapi,kaldu bubuk,penyedap
+royco,kaldu bubuk,penyedap
+masako,kaldu bubuk,penyedap
+totole,kaldu bubuk,penyedap
+micin,msg,penyedap
+vetsin,msg,penyedap
+msg,msg,penyedap
+air,air,cairan
+air matang,air,cairan
+air hangat,air,cairan
+air panas,air,cairan
+air putih,air,cairan
+air bersih,air,cairan
+air es,air,cairan
+es batu,es batu,cairan
+pete,petai,sayur
+petai,petai,sayur
+tofu,tahu,protein_nabati
+tahu cina,tahu,protein_nabati
+bawang pre,daun bawang,bumbu_aromatik
+bawang prei,daun bawang,bumbu_aromatik
+saori saus tiram,saus tiram,saus
+royco ayam,kaldu bubuk,penyedap
+garam cap kapal,garam,bumbu_dasar
+kambing,daging kambing,protein
+iga kambing,daging kambing,protein
+ayam giling,daging ayam,protein
+fillet paha ayam,daging ayam,protein
+ayam dada,daging ayam,protein
+telur ayam kampung,telur ayam,protein
+bawang putih kating,bawang putih,bumbu_dasar
+merica butiran,lada,rempah
+kecambah,tauge,sayur
+air mineral,air,cairan
+air dingin,air,cairan
+salted butter,mentega,lemak
+unsalted butter,mentega,lemak
+mentega cair,mentega,lemak
+blueband,margarin,lemak
+margarin cair,margarin,lemak
+jeruk lemon,lemon,bumbu_asam
+pokcoy,pakcoy,sayur
+santan kelapa,santan,lemak_nabati
+santan air,santan,lemak_nabati
+santan segitiga,santan,lemak_nabati
+saset santan,santan,lemak_nabati

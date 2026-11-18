@@ -1,0 +1,9 @@
+scenario_id,scenario_description,validation_window,lag_order,ridge_alpha,significant_edges_subtrain,mean_rmse_naive,mean_rmse_ar,mean_rmse_domino,mean_skill_vs_ar_pct,mean_skill_vs_naive_pct,commodities_beating_ar,commodities_vp6_valid_on_val
+S01,AR(1) vs Domino ARX(1) | Ridge alpha=1.0 (Raw),Hari [400:500] (100 hari kerja validasi),1,1.0,19,0.006128,0.005876,0.00611,-1.264,-4.195,4,2
+S02,AR(3) vs Domino ARX(3) | Ridge alpha=1.0 (Raw),Hari [400:500] (100 hari kerja validasi),3,1.0,48,0.006128,0.005923,0.006046,5.299,-2.0,6,1
+S03,AR(5) vs Domino ARX(5) | OLS Nyaris Tanpa Regularisasi alpha=0.001 (Raw),Hari [400:500] (100 hari kerja validasi),5,0.001,43,0.006128,0.005873,0.005838,1.06,-6.642,5,2
+S04,AR(5) vs Domino ARX(5) | Ridge Ringan alpha=0.1 (Raw),Hari [400:500] (100 hari kerja validasi),5,0.1,43,0.006128,0.005873,0.00578,5.978,-0.679,6,2
+S05,AR(5) vs Domino ARX(5) | Ridge Standar alpha=1.0 (Raw),Hari [400:500] (100 hari kerja validasi),5,1.0,43,0.006128,0.005873,0.005994,4.656,-1.605,6,2
+S06,AR(5) vs Domino ARX(5) | Ridge Kuat alpha=10.0 (Raw),Hari [400:500] (100 hari kerja validasi),5,10.0,43,0.006128,0.005873,0.006136,3.591,-2.516,6,3
+S07,AR(3) vs Domino ARX(3) | Ridge alpha=1.0 (Seasonally Adjusted),Hari [400:500] (100 hari kerja validasi),3,1.0,53,0.006823,0.00644,0.006669,4.432,1.004,7,2
+S08,AR(5) vs Domino ARX(5) | Ridge Standar alpha=1.0 (Seasonally Adjusted - DIPILIH),Hari [400:500] (100 hari kerja validasi),5,1.0,50,0.006823,0.00629,0.006597,4.164,1.586,7,4

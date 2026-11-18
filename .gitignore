@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# data mentah & hasil olahan tidak di-commit; manifest/hash yang di-commit
+data/raw/**
+!data/raw/.gitkeep
+!data/raw/manifest.json
+data/interim/**
+data/processed/**
+!data/**/.gitkeep
+artifacts/runs/**
+!artifacts/runs/.gitkeep
+
+# file sistem & lock sementara
+.DS_Store
+Thumbs.db
+*.tmp
+~$*
+*.bak

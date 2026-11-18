@@ -1,0 +1,301 @@
+eval_line_idx,raw_line,predicted_canonical
+329,1 sdt garam,garam
+876,3 lbr Daun Salam,daun salam
+971,1/4 kg Jamur,jamur
+1017,1/2 kol (3 ribu) (potong),kubis
+1024,1 cm Jahe,jahe
+1380,secukupnya Kecap ikan,kecap ikan
+1554,"3 lbr daun jeruk, buang tulang daunnya, sobek sobek",daun jeruk|buang tulang daunnya|sobek
+1668,1 lembar daun kunyit,daun kunyit
+1868,3 siung bawang putih iris,bawang putih
+1958,1/2 sdt kunyit bubuk,kunyit
+2612,1 buah bawang bombay,bawang bombay
+2851,Tahu yg sdh direbus,tahu yg sdh
+2918,"1 buah tomat merah, buang biji, potong2",tomat|buang
+3035,500 ml air rebusan daging,air rebusan daging
+3414,1 ruas jari jahe,jahe
+3546,4-5 buah bawang merah,bawang merah
+3555,3 buah telur ayam rebus,telur ayam
+3717,50 ml susu uht (saya pakai susu bubuk),susu uht
+3791,2 sdt kecap inggris,kecap inggris
+3838,1 sdt ketumbar butir,ketumbar
+3930,"Bawang goreng dan seledri(kalau suka, kebetulan saya gak pake)",bawang|seledri
+3985,2 sdm mentega,mentega
+4036,1 ekor ikan tongkol rebus (uk.sedang),ikan tongkol
+4055,"1 tangkai seledri, iris kasar",seledri
+4117,Jeruk nipis utk melumuri udang,jeruk nipis utk melumuri udang
+4206,500 gr jando sapi,jando sapi
+4251,"1 buah tomat, iris",tomat
+4324,1 sendok makan minyak goreng,minyak goreng
+4349,Secukupnya kaldu ayam,kaldu bubuk
+4643,8 siung bawang merah,bawang merah
+4757,1 sdm kecap asin,kecap asin
+5127,2 piring nasi,nasi
+5292,1 sachet Sambal bawang,sambal bawang
+5658,1 tangkai seledri,seledri
+5722,20 gram daun bawang,daun bawang
+5724,50 gram wortel (parut kasar),wortel
+5810,5 bawang merah cincang,bawang merah
+6254,4 lembar sawi putih potong-potong,sawi putih
+6258,2 bawang putih,bawang putih
+6294,"1 genggam buncis, potong dan rebus",buncis
+6490,bumbu halus,
+6805,3 gr ragi instant,ragi
+6828,1 buah bawang bombay,bawang bombay
+6898,"6 siung bawang putih, parut",bawang putih
+7188,5 Cabe Rawit Merah,cabai rawit merah
+7229,1 cm Jahe,jahe
+7235,"3 buah cabe merah besar, iris serong",cabai merah besar
+7384,2 kemiri,kemiri
+7452,"5 butir pentol, iris tipis",pentol
+7483,6 daun jeruk,daun jeruk
+7661,1 putih telur ukuran kecil,telur ayam
+7867,1 buah tomat besar,tomat
+7933,1 sdt gula,gula pasir
+8057,1/4 sdt gula pasir,gula pasir
+8155,100 gr bawang merah potong² / yang kecil²,bawang merah
+8452,1 buah tomat,tomat
+8473,Secukupnya gula merah,gula merah
+8700,1 ruas jari lengkuas/laos,lengkuas
+8946,1/2 sdm maizena (larutkan ke dalam 2sdm air matang),tepung maizena
+8997,2 helai seledri,seledri
+9081,1 butir putih telur,telur ayam
+9611,125 gram tepung terigu serbagyna,tepung terigu serbagyna
+10149,150 ml santan kental,santan
+10153,7 siung bawang putih,bawang putih
+10480,5 siung bawang merah,bawang merah
+10706,20 buah bawang merah,bawang merah
+10719,cabe rawit,cabai rawit
+10990,"Secukupnya gula merah, kemiri, gula putih, garam, royco (selera)",gula merah|kemiri|gula pasir|garam|kaldu bubuk
+11715,lidi secukupnya,lidi
+11821,1 sdt merica bubuk,lada
+11926,1 ikat sereh,serai
+11998,1 batang serai digeprek,serai
+12214,2 batang sereh,serai
+12368,150 gr bawang putih,bawang putih
+12387,5 cm batang kayumanis,kayu manis
+12394,4 siung bawang putih,bawang putih
+12404,1 sendok teh kaldu bubuk opsional,kaldu bubuk
+12606,5 buah bawang merah,bawang merah
+12790,7 buah cabe merah kecil,cabai merah
+12901,minyak utk menumis,minyak goreng
+13154,2 sdm kecap manis,kecap manis
+13240,secukupnya Royco,kaldu bubuk
+13473,5 buah cabe rawit,cabai rawit
+13520,Secukupnya gula dan garam,gula pasir|garam
+13613,250 gr Dada ayam fillet,daging ayam
+13730,7 siung bawang putih,bawang putih
+13856,2 pelepah daun kari,pelepah daun kari
+13974,secukupnya Air,air
+14396,2 gram micin Asatu Rose Brand (me),micin asatu
+14569,1 ruas jahe,jahe
+14769,1 bh cabe keriting,cabai merah keriting
+14812,1 sdm saus sambal,saus sambal
+14902,1 buah wortel serut sesuai selerah,wortel serut sesuai selerah
+14982,"350 gr Paha ayam fillet dengan lemak, potong kotak",paha ayam fillet dengan lemak
+15201,garam,garam
+15364,1/2 potong apel malang (dipotong dadu kecil),apel malang
+15564,1/2 sdt garlic powder,garlic powder
+15581,1/2 sendok teh ketumbar bubuk,ketumbar
+15845,3 daun jeruk,daun jeruk
+16225,Saos tomat botolan,saus tomat botolan
+16268,1 buletan gulmer,buletan gula merah
+16394,secukupnya Minyak goreng,minyak goreng
+16427,Minyak goreng secukupnya*,minyak goreng
+16564,1 buah jeruk nipis,jeruk nipis
+16566,Secukupnya air,air
+17084,1/2 bagian bawang bombay,bawang bombay
+17337,1/2 sdt Gula pasir Rose Brand,gula pasir
+17979,10 bh cabe hijau dibelah panjang,cabai hijau dibelah panjang
+18212,3 sdm gula pasir,gula pasir
+18300,1/4 tepung terigu,tepung terigu
+18337,"1/2 buah jeruk nipis,peras",jeruk nipis|peras
+18371,3 sdt garam halus,garam
+18669,1 sdm kecap asin,kecap asin
+18731,1/2 kg cabe merah besar (Rebus hingga empuk),cabai merah besar
+18786,5 siung bawang merah,bawang merah
+19336,1 ekor ikan simba berat 2 kg,ikan simba berat
+19396,3 buah Bawang Merah,bawang merah
+19459,1/2 sachet Merica Bubuk,lada
+19472,1/2 sachet Kaldu Bubuk,kaldu bubuk
+19555,50 ml air,air
+19561,4 lbr daun salam,daun salam
+19598,10 lenjer kacang panjang potong potong,lenjer kacang panjang
+19682,75 gr Bawang Merah,bawang merah
+19728,1 ruas jahe,jahe
+19812,Secukupnya garam,garam
+19824,1 sdt jintan,jintan
+19921,2 lembar daun jeruk,daun jeruk
+20004,3 papan Pete,petai
+20057,2 batang sereh,serai
+20080,1 sdt susu bubuk,susu
+20119,500 ml air,air
+20127,Secukupnya garam,garam
+20160,"1/2 bagian dada ayam fillet, potong kecil",daging ayam
+20452,500 ml air kaldu,air kaldu
+20517,Secukupnya Minyak Goreng Untuk Menumis,minyak goreng
+20543,10 lembar sawi putih,sawi putih
+20704,"4 siung bawang putih, chop halus",bawang putih|chop
+20789,4 buah bunga lawang,bunga lawang
+20864,"Sejempol lengkuas, geprek",sejempol lengkuas
+20986,4 siung bawang putih,bawang putih
+20999,15 siung Bawang Merah,bawang merah
+21093,3 bh bawang putih,bawang putih
+21107,Kol putih,kol putih
+21276,1 sdt Bubuk kari,bubuk kari
+21279,100 g Tahu putih,tahu
+21668,1/4 udang (yg sudah dikupas),udang
+21867,1 lbr daun jeruk,daun jeruk
+22049,"500 gr ayam dada/paha fillet, dicacah kasar",daging ayam|paha fillet|dicacah
+22118,1 batang daun bawang,daun bawang
+22181,1 Bungkus daging dan tulang kambing kurban,daging sapi|tulang kambing kurban
+22205,4 siung bawang putih,bawang putih
+22221,1 sdm kecap asin,kecap asin
+22254,"4 siung Bawang merah, iris tipis",bawang merah
+22297,2 bungkus jamur enoki,jamur enoki
+22351,Jari kelingking Kunyit,kelingking kunyit
+22462,7 buah bawang merah,bawang merah
+22629,sesuai selera cabai rawit,cabai rawit
+22633,3 sdm gula merah sisir,gula merah
+22924,10 cabai merah besar,cabai merah besar
+23402,1 sdt kaldu bubuk,kaldu bubuk
+23513,10 potong dadu tahu,tahu
+24368,25 g margarin,margarin
+24369,125 ml air hangat,air
+24436,7 butir bawang merah,bawang merah
+24495,1.5 sdt lada,lada
+24545,4 butir merica,lada
+24781,2 butir cengkeh,cengkih
+24790,Secukupnya Minyak goreng untuk menumis,minyak goreng
+24872,1 sdt bubuk cabe,bubuk cabai
+24960,"2 ekor ikan kerapu ukuran sedang cuci bersih, belah panggang",ikan kerapu|panggang
+25044,1 Sdm kecap asin,kecap asin
+25250,4 butir bawang putih,bawang putih
+25309,3 sdm Gula pasir,gula pasir
+25318,3 buah Kapulaga,kapulaga
+25460,1/2 sdt garam,garam
+25692,2 sdt Desaku bawang putih bubuk,desaku bawang putih
+25730,12 bawang merah,bawang merah
+25994,1/2 sdt garam,garam
+26099,20 gram kacang tanah haluskan (boleh dg sedikit air),kacang tanah
+26221,70 ml minyak goreng,minyak goreng
+26391,5 butir bawang merah,bawang merah
+26544,Cabe rawit biarkan utuh,cabai rawit biarkan
+26999,100 gr kol iris2,kubis
+27229,50 gr tepung beras (sy 3 sdm),tepung beras
+27511,1/4 sdt kaldu bubuk,kaldu bubuk
+28160,1 buah daun bawang potong besar besar,daun bawang
+28173,1 sdm gula pasir,gula pasir
+28228,500 gr daging sapi iris tipis,daging sapi
+28229,4 siung bawang merah,bawang merah
+28263,1 sdt ketumbar,ketumbar
+28423,5 sdm minyak untuk menumis,minyak goreng
+28495,"2 siung bawang putih,haluskan",bawang putih
+28765,1 ruas jari lengkuas,lengkuas
+29174,"1/2 mangga muda (pilih yang asam) ukuran kecil, serut",mangga muda
+29229,2 siung bawang putih,bawang putih
+29301,Cabe merah,cabai merah
+29658,3 buah cabe merah besar,cabai merah besar
+29664,2 sdm kecap manis,kecap manis
+29758,Terasi dikit aja,terasi dikit aja
+29769,Minyak untuk menumis,minyak goreng
+29774,2 buah Cabai hijau,cabai hijau
+29926,6 sdm saus tomat,saus tomat
+29961,2 pcs fillet salmon (kurleb 200 gr/fillet),fillet salmon
+30156,3 siung Bawang Merah,bawang merah
+30302,"Secukupnya Lada bubuk, Garam, Gula",lada|garam|gula pasir
+30434,2 buah cabai rawit,cabai rawit
+30539,1 batang daun bawang,daun bawang
+30540,1 sdt garam,garam
+30658,1/2 sdt lada bubuk,lada
+30703,600 ml air matang,air
+31143,secukupnya Minyak goreng,minyak goreng
+31219,10 gr keju cheddar,keju cheddar
+31233,secukupnya gula merah,gula merah
+31309,Minyak untuk menggoreng,minyak goreng
+31327,1/2 buah Tomat,tomat
+31385,5 butir merica,lada
+31563,4 siung bawang putih,bawang putih
+31592,2 butir putih telur (saya ganti 1 butir telur),telur ayam
+32046,1 Buah Santan Kara,santan
+32144,2 ruas jari Lengkuas,lengkuas
+32161,"1 papan Styrofoam ikan tongkol.(sekitar ada 7 potong,untuk beratnya kira2 ±350gr)",styrofoam ikan tongkol
+32294,"10 bh buncis, potong²",buncis
+32379,1/2 sdt garam,garam
+32383,secukupnya kecap manis,kecap manis
+32861,Semamngka,semamngka
+33062,1 ruas kunyit,kunyit
+33236,1/2 sdt kaldu jamur,kaldu bubuk
+33300,1 sachet saus tiram (sy pake saori),saus tiram
+33881,sedikit gula,gula pasir
+33969,Bawang merah,bawang merah
+33996,1 ruas jari jahe,jahe
+34009,500 grm daging kambing (kalau ada sapi lebih bagus),grm daging kambing
+34046,4 iris lengkuas,lengkuas
+34255,400 ml Air,air
+34281,Kipas sate,kipas sate
+34353,Sambal petis,sambal petis
+34559,15 buah Cabai Rawit merah,cabai rawit merah
+34584,1/2 sdt gula,gula pasir
+34794,10 siung bawang merah,bawang merah
+34917,2 butir telur,telur ayam
+34927,1/2 sdt cengkeh bubuk,cengkih
+34935,1 sdt chilli flakes,chilli flakes
+34947,15 tepung maizena Rose Brand,tepung maizena
+35111,Secukupnya Minyak untuk menumis,minyak goreng
+35127,500 gr dada ayam (rebus lalu suwir),daging ayam
+35167,1/2 sdt ketumbar,ketumbar
+35220,1 jempol lengkuas geprek,lengkuas
+35331,Penyedap masakan,penyedap masakan
+35397,10 buah cabai merah kriting,cabai merah keriting
+35584,1 buah tomat,tomat
+35600,2 lembar daun salam,daun salam
+35636,Olive oil,olive oil
+35663,30-40 ekor udang segar,udang
+36007,Saus cabe(saus sambal+gula+air panas),saus cabai
+36022,5 siung bawang merah,bawang merah
+36291,Daun jeruk,daun jeruk
+36295,Gula,gula pasir
+36481,secukupnya Lada bubuk dan garam,lada|garam
+36760,50 gram terigu protein sedang / serbaguna (saya biasa pakai segitiga biru),terigu protein|serbaguna
+36811,5 sendok makan kecap manis,kecap manis
+36986,Secukupnya ketumbar bubuk,ketumbar
+37236,4 butir Bawang Merah,bawang merah
+37249,1/4 sdt gula pasir,gula pasir
+37266,2 bh tomat ukuran besar potong potong kecil,tomat
+37511,1 buah ikan dori fillet,ikan dori fillet
+37660,3/4 Kg tulang iga sapi,tulang iga sapi
+38195,Bahan Bumbu Dihaluskan :,
+38229,1 sdm kecap manis,kecap manis
+38287,2 sdm Kecap Manis,kecap manis
+38335,1 buah cabai merah,cabai merah
+38342,60 gr putih telur,telur ayam
+38355,500 gr daging sapi (sudah saya rebus),daging sapi
+38447,Secukupnya minyak untuk menumis,minyak goreng
+39676,1 sdt Penyedap rasa,kaldu bubuk
+39921,1 butir telur,telur ayam
+40185,2 tomat merah,tomat
+40374,2 sdt kaldu sapi(sesuai selera),kaldu bubuk
+40493,1 sdt Cuka Masak,cuka masak
+40500,1.5 potong terasi,terasi
+40752,150 ml air,air
+41114,1 buah tahu putih besar (450 gram),tahu
+41248,"3 buah cabai hijau besar, iris",cabai hijau
+41403,Penyedap rasa(saya pakai totole),kaldu bubuk
+41551,1 sdt lada,lada
+42054,7 siung bawang merah,bawang merah
+42061,1 buah wortel,wortel
+42143,3 siung bawang putih,bawang putih
+42866,Bahan ayam panggang:,daging ayam
+43038,2 sendok makan saos tomat,saus tomat
+43063,8 bawang merah,bawang merah
+43142,3-5 lembar Daun salam,daun salam
+43262,Secukupnya garam. / Penyedap,garam|kaldu bubuk
+43387,Sesuai selera kecap manis,kecap manis
+43476,Bawang merah iris halus,bawang merah
+43574,300 ml Santan cair,santan
+44018,1 bungkus kecil Santan instan,santan
+44452,Daun jeruk,daun jeruk
+44467,1 siung bamer cincang halus,bawang merah
+44637,5 siung bawang putih,bawang putih
+44826,500 gr ayam,daging ayam

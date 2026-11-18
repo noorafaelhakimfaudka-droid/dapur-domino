@@ -1,0 +1,6 @@
+{
+  "total_sampled": 300,
+  "clean_count": 271,
+  "accuracy_pct": 90.33,
+  "sample_file": "artifacts/vp1_eval_sample_300.csv"
+}

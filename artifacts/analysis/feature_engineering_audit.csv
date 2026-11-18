@@ -1,0 +1,7 @@
+feature_group,mathematical_formula,dimensionality,purpose_and_leakage_control
+Log-Return Harian (r_t),r_t = ln(P_t / P_{t-1}),"796 hari x (10 Nas, 340 Prov, 1.049 Kota)",Menstasionerkan deret harga dan menyamakan skala persentase perubahan antar-komoditas.
+Matriks Desain Musiman & Hari Raya (X_cal),"[1, DOW_1..4, sin(2pi*k*d/365.25), cos(2pi*k*d/365.25), PreHoliday_14d, PostHoliday_7d]",796 hari x 11 fitur eksogen,Koefisien OLS beta di-fit HANYA pada data latih [:500] sebelum menghitung residu di seluruh rentang (0% test leakage).
+Matriks Lag Autoregressive Exogenous ARX(p),"[1, y_{t-1}..y_{t-p}, x^{(1)}_{t-1}..x^{(m)}_{t-p}]",1 + p*(1 + m_triggers) fitur per komoditas,Hanya memakai nilai masa lalu (t-1 s.d. t-p) untuk memprediksi t; diperbarui dengan expanding window.
+"Bobot Graf Ko-okurensi Bahan (PMI, NPMI, Lift)","NPMI(a,b) = log(P(a,b)/(P(a)P(b))) / (-log P(a,b))","1.334 simpul, 11.938 sisi berarah/tak-berarah",Dihitung murni dari 66.419 resep train.parquet; eval.parquet tidak pernah disentuh saat konstruksi graf.
+Vektor Embedding Bahan Word2Vec & Skor Substitusi,"sub(a,b) = cos(v_a, v_b) * (1 - max(0, NPMI(a,b)))",1.334 bahan x 64 dimensi vektor laten,Menangkap kesamaan peran kuliner (cosine tinggi) sambil mendiskon bumbu pelengkap yang sering dimasak bersama.
+Skor Stabilitas Harga 30 Hari & Skor Hibrida,"S_price = exp(-max(0, dP_30d)) * exp(-5 * vol_30d); Score = 0.6*sub + 0.4*S_price",10 komoditas x 140 wilayah (Nasional/Prov/Kota),"Bobot 0,6 / 0,4 dikunci di konfigurasi sebelum evaluasi; bahan tanpa peta harga diberi combined_score = None."

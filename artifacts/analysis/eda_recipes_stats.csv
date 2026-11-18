@@ -1,0 +1,6 @@
+aspect,count,mean,std,min,p25,median,p75,p95,max,note
+"Jumlah Bahan Bersih per Resep (Train, n=66.419)",66419,13.02,5.0,1.0,9.0,13.0,16.0,22.0,67.0,Rata-rata resep Nusantara memakai ~13 bahan unik setelah normalisasi.
+"Jumlah Bahan Bersih per Resep (Eval, n=3.496)",3496,13.06,4.92,1.0,10.0,13.0,16.0,22.0,36.0,Distribusi split Eval identik dengan Train (tidak terjadi covariate shift).
+Frekuensi Resep per Bahan di Kosakata (n=1.334 bahan),1334,587.38,3286.04,20.0,29.0,46.0,108.0,1341.199999999997,52972.0,Distribusi power-law (Zipf): Top-10 bahan menyumbang 40.64% dan Top-50 menyumbang 80.40% seluruh kemunculan.
+Bobot Asosiasi NPMI pada Graf Bahan (n=11.938 sisi),11938,0.1518,0.1184,0.05,0.077,0.1139,0.1801,0.38,0.9391,"Pasangan bahan dengan NPMI >= 0,05 dan ko-okurensi >= 10 resep."
+Ukuran Komunitas Rasa Louvain (n=82 komunitas),82,16.27,69.18,1.0,1.0,1.0,1.0,100.60000000000025,475.0,"Terbentuk klaster bumbu dasar, kue/baking, rempah gulai, sambal, dan sayur."

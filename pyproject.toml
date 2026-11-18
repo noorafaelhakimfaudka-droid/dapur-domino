@@ -1,0 +1,61 @@
+[project]
+name = "dapur-domino"
+version = "0.1.0"
+description = "Efek domino harga pangan x jaringan asosiasi bahan masakan Nusantara"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "gensim>=4.4,<5.0",
+  "networkx>=3.3,<4.0",
+  "numpy>=1.26,<3.0",
+  "pandas>=2.2,<3.0",
+  "plotly>=5.24,<8.0",
+  "pyarrow>=17.0,<24.0",
+  "python-louvain>=0.16,<1.0",
+  "pyyaml>=6.0.1,<7.0",
+  "requests>=2.32,<3.0",
+  "scipy>=1.13,<2.0",
+  "statsmodels>=0.14,<1.0",
+  "streamlit>=1.40,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.11,<2.0",
+  "pandas-stubs>=2.2,<3.0",
+  "pytest>=8.3,<9.0",
+  "ruff>=0.6,<1.0",
+  "scipy-stubs>=1.13,<2.0",
+  "types-PyYAML>=6.0.12,<7.0",
+  "types-networkx>=3.3,<4.0",
+  "types-requests>=2.32,<3.0",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dapur_domino"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+mypy_path = "src"
+packages = ["dapur_domino"]
+
+[[tool.mypy.overrides]]
+module = ["statsmodels.*", "pyarrow.*", "gensim.*", "community.*", "plotly.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
