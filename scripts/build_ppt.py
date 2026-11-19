@@ -46,6 +46,8 @@ RGB_CODE_FG = RGBColor(0xEA, 0xDF, 0xD0)
 RGB_CODE_CAP = RGBColor(0xC9, 0xA4, 0x6B)
 RGB_CODE_KW = RGBColor(0xF0, 0x91, 0x6F)
 RGB_CODE_CMT = RGBColor(0x8B, 0x81, 0x77)
+RGB_CODE_OUT = RGBColor(0x7C, 0xE3, 0x8B)
+RGB_CODE_OUT_CAP = RGBColor(0x6C, 0xD4, 0xA2)
 
 HEX_RED = "#D8432B"
 HEX_YEL = "#E9A23B"
@@ -61,7 +63,7 @@ FONT_MONO = "Consolas"
 
 SLIDE_W = Inches(13.333)
 SLIDE_H = Inches(7.5)
-TOTAL_SLIDES = 27
+TOTAL_SLIDES = 32
 
 PY_KEYWORDS = {
     "def",
@@ -173,11 +175,9 @@ def extract_function_snippet(
         if not raw.strip():
             continue
         if len(raw) > max_chars:
-            raw = raw[: max_chars - 3].rstrip() + "..."
+            raw = raw[: max_chars - 1].rstrip() + "…"
         selected.append(raw)
-        if len(selected) >= max_lines - 1:
-            if i + 1 < end_idx:
-                selected.append("    # ... (selengkapnya di source code)")
+        if len(selected) >= max_lines:
             break
     return selected
 
@@ -428,21 +428,29 @@ def add_code_panel(
 
     first = True
     for cap, code_lines in sections:
+        is_output = cap.startswith(">>>")
         p_cap = tf.paragraphs[0] if first else tf.add_paragraph()
         first = False
-        p_cap.space_before = Pt(0 if p_cap is tf.paragraphs[0] else 8)
-        p_cap.space_after = Pt(3)
+        p_cap.space_before = Pt(0 if p_cap is tf.paragraphs[0] else 6)
+        p_cap.space_after = Pt(2)
         rc = p_cap.add_run()
         rc.text = cap
         rc.font.name = FONT_MONO
-        rc.font.size = Pt(font_size - 0.4)
+        rc.font.size = Pt(font_size - 0.3)
         rc.font.bold = True
-        rc.font.color.rgb = RGB_CODE_CAP
+        rc.font.color.rgb = RGB_CODE_OUT_CAP if is_output else RGB_CODE_CAP
 
         for line in code_lines:
             p_ln = tf.add_paragraph()
-            p_ln.space_before = Pt(0.5)
-            p_ln.space_after = Pt(0.5)
+            p_ln.space_before = Pt(0.4)
+            p_ln.space_after = Pt(0.4)
+            if is_output:
+                ro = p_ln.add_run()
+                ro.text = line
+                ro.font.name = FONT_MONO
+                ro.font.size = Pt(font_size)
+                ro.font.color.rgb = RGB_CODE_OUT
+                continue
             stripped = line.lstrip()
             if stripped.startswith("#"):
                 r = p_ln.add_run()
@@ -1080,7 +1088,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s2 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s2,
-        "I · Perumusan Masalah",
+        "Unit 1 · J.62DMI00.001.1 · Menentukan Objektif Bisnis",
         "Empat tujuan usaha: masalah siapa yang ingin kita bantu?",
         2,
         subtitle=(
@@ -1153,7 +1161,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s3 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s3,
-        "I · Perumusan Masalah",
+        "Unit 2 · J.62DMI00.002.1 · Menentukan Tujuan Teknis Data Science",
         "Mengubah keluhan dapur menjadi 7 target Ilmuwan Data",
         3,
     )
@@ -1260,7 +1268,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s4 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s4,
-        "II · Telaah Data (EDA)",
+        "Unit 3 · J.62DMI00.005.1 · Menelaah Data",
         "Cabai bergejolak hampir 7× lipat (20,8%), beras paling tenang (2,96%)",
         4,
         subtitle=(
@@ -1298,8 +1306,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "lifecycle.py",
                     "analyze_price_distributions",
-                    max_lines=21,
-                    max_chars=60,
+                    max_lines=17,
+                    max_chars=66,
                     skip_ranges=[
                         ('                "comcat_id":', '                "std_idr":'),
                         ('                "min_idr":', '                "return_std_daily_pct":'),
@@ -1307,8 +1315,18 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="q25 = float(",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (eda_prices_stats.csv · 796 hari aktif)",
+                [
+                    "Cabai Rawit  | mean=Rp 61.035 | cv=20,80% | skew=+1,04",
+                    "Cabai Merah  | mean=Rp 54.101 | cv=19,95% | skew=+0,96",
+                    "Bawang Merah | mean=Rp 42.186 | cv=16,17% | skew=+4,17",
+                    "Daging Sapi  | mean=Rp138.707 | cv= 3,45% | skew=-1,86",
+                    "Beras        | mean=Rp 15.598 | cv= 2,96% | skew=+0,70",
+                ],
+            ),
         ],
-        font_size=8.0,
+        font_size=7.4,
     )
 
     # =========================================================================
@@ -1317,7 +1335,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s5 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s5,
-        "II · Telaah Data (EDA)",
+        "Unit 3 · J.62DMI00.005.1 · Menelaah Data",
         "Jumlah bahan resep seimbang; 50 bumbu inti kuasai 80% dapur",
         5,
         subtitle=(
@@ -1416,7 +1434,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s6 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s6,
-        "II · Validasi Data",
+        "Unit 4 · J.62DMI00.006.1 · Memvalidasi Data",
         "Enam saringan mutu data: sidik jari berkas, libur, & lonjakan",
         6,
     )
@@ -1483,8 +1501,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "ingest" / "manifest.py",
                     "verify_raw_manifest",
-                    max_lines=9,
-                    max_chars=56,
+                    max_lines=8,
+                    max_chars=62,
                     start_at="actual_size =",
                 ),
             ),
@@ -1493,8 +1511,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "cleaning" / "prices.py",
                     "clean_price_wide_panel",
-                    max_lines=16,
-                    max_chars=56,
+                    max_lines=12,
+                    max_chars=62,
                     skip_ranges=[
                         ("    series_audit = pd.DataFrame", "    )"),
                         ("    outlier_rows:", "    outlier_rows:"),
@@ -1503,8 +1521,17 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="date_missing_frac =",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (verify_raw_manifest & m1_summary.json)",
+                [
+                    "raw_manifest : 370/370 OK (0 mismatch, 0 missing)",
+                    "market_days  : 804 -> 796 aktif (8 libur disaring)",
+                    "city_series  : 1.099 -> 1.049 bersih (50 dibuang)",
+                    "outliers_log : nas=0 | prov=9 | kota=66 titik",
+                ],
+            ),
         ],
-        font_size=7.4,
+        font_size=7.0,
     )
 
     # =========================================================================
@@ -1513,7 +1540,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s7 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s7,
-        "II · Validasi Data",
+        "Unit 4 · J.62DMI00.006.1 · Memvalidasi Data",
         "Harga Rupiah mentah menipu model; % gerak harian aman dimodelkan",
         7,
     )
@@ -1546,8 +1573,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "stationarity.py",
                     "compute_log_returns",
-                    max_lines=10,
-                    max_chars=64,
+                    max_lines=8,
+                    max_chars=70,
                     start_at="positive = wide_prices",
                 ),
             ),
@@ -1556,8 +1583,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "stationarity.py",
                     "test_series_stationarity",
-                    max_lines=15,
-                    max_chars=64,
+                    max_lines=13,
+                    max_chars=70,
                     skip_ranges=[
                         ("    kpss_note:", "        warnings.simplefilter"),
                         ("        if caught:", "            kpss_note ="),
@@ -1565,8 +1592,17 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="adf_stat, adf_p",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (stationarity_national/province/city.csv)",
+                [
+                    "Harga Mentah  -> stationary_both: 0/10 Nasional (0,0%)",
+                    "Gerak Harian  -> Nasional : 9/10 (90,0% · Gula KPSS=0,010)",
+                    "Gerak Harian  -> Provinsi : 334/340 (98,24% lolos 2 pintu)",
+                    "Gerak Harian  -> Kota     : 1.028/1.049 (98,00% lolos)",
+                ],
+            ),
         ],
-        font_size=7.9,
+        font_size=7.3,
     )
 
     # =========================================================================
@@ -1575,7 +1611,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s8 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s8,
-        "II · Seleksi & Partisi Data",
+        "Unit 5 · J.62DMI00.007.1 · Menentukan Objek Data",
         "Memilih data harian tepat & menyegel 'amplop ujian' masa depan",
         8,
     )
@@ -1661,7 +1697,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s9 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s9,
-        "III · Pembersihan Data",
+        "Unit 6 · J.62DMI00.008.1 · Membersihkan Data",
         "Lima tahap merapikan data harga & catatan resep (90,33% bersih)",
         9,
     )
@@ -1732,32 +1768,17 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     src / "ingest" / "pihps.py",
                     "parse_pihps_price",
                     max_lines=6,
-                    max_chars=58,
+                    max_chars=64,
                     start_at="text = str(raw_val)",
                 ),
             ),
             (
-                "src/dapur_domino/cleaning/prices.py · Filter Hari Kerja & Duplikat",
-                extract_function_snippet(
-                    src / "cleaning" / "prices.py",
-                    "build_price_panel",
-                    max_lines=8,
-                    max_chars=58,
-                    skip_ranges=[
-                        ("    # Drop any accidental", "    # Drop any accidental"),
-                        ("    # Deduplicate overlapping", "    # Deduplicate overlapping"),
-                        ("        df.sort_values", "        df.sort_values"),
-                    ],
-                    start_at='df["price_idr"] = pd.to_numeric',
-                ),
-            ),
-            (
-                "src/dapur_domino/cleaning/ingredients.py · Pisah 'garam gula'",
+                "src/dapur_domino/cleaning/ingredients.py · Pisah 'garam gula' & Sinonim",
                 extract_function_snippet(
                     src / "cleaning" / "ingredients.py",
                     "normalize_ingredient_line",
                     max_lines=4,
-                    max_chars=58,
+                    max_chars=64,
                     start_at="text = re.sub",
                 ),
             ),
@@ -1767,7 +1788,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     src / "cleaning" / "ingredients.py",
                     "_clean_single_fragment",
                     max_lines=7,
-                    max_chars=58,
+                    max_chars=64,
                     skip_ranges=[
                         ("    text = text.replace", "        return None"),
                         ("    while len(norm_tokens)", "        norm_tokens.pop(0)"),
@@ -1775,8 +1796,17 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="text = re.sub(rf\"\\b{_UNIT_PATTERN}",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (parse_pihps_price & vp1_eval_sample_300.csv)",
+                [
+                    "parse_pihps_price('58,450') -> 58450.0 | '-' -> None",
+                    "'1/2 kol (3 ribu) (potong)' -> ['kubis']",
+                    "'3 siung bawang putih iris' -> ['bawang putih']",
+                    "cek_manual_300_baris        -> 271/300 = 90,33% bersih",
+                ],
+            ),
         ],
-        font_size=7.2,
+        font_size=7.0,
     )
 
     # =========================================================================
@@ -1785,7 +1815,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s10 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s10,
-        "III · Konstruksi Fitur",
+        "Unit 7 · J.62DMI00.009.1 · Mengkonstruksi Data",
         "Mengupas bias Lebaran & hari raya tanpa mengintip masa depan",
         10,
     )
@@ -1853,8 +1883,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "seasonality.py",
                     "build_calendar_design_matrix",
-                    max_lines=15,
-                    max_chars=66,
+                    max_lines=13,
+                    max_chars=74,
                     skip_ranges=[
                         ("        date_arr =", "            post_flag = np.maximum"),
                         ("                post_flag, ((date_arr", "            )"),
@@ -1867,14 +1897,22 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "seasonality.py",
                     "residualize_calendar_seasonality",
-                    max_lines=11,
-                    max_chars=66,
+                    max_lines=10,
+                    max_chars=74,
                     skip_ranges=[("        if int(valid.sum())", "            continue")],
                     start_at="x_train = x_all[:train_end_idx]",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (residualize_calendar_seasonality · 0% leakage)",
+                [
+                    "X_all.shape = (796, 11) | fit_only = X_all[:500] (500 hari awal)",
+                    "test_window [500:796]   = 0% tersentuh saat menghitung koefisien beta",
+                    "retensi_rantai_domino   = 50/50 (100% bertahan) + 6 rantai baru = 56",
+                ],
+            ),
         ],
-        font_size=7.6,
+        font_size=7.2,
     )
 
     # =========================================================================
@@ -1883,7 +1921,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s11 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s11,
-        "III · Konstruksi Fitur",
+        "Unit 7 · J.62DMI00.009.1 · Mengkonstruksi Data",
         "Enam racikan fitur siap pakai untuk model harga, resep, & dompet",
         11,
     )
@@ -1944,7 +1982,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s12 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s12,
-        "IV · Desain Skenario Model",
+        "Unit 8 · J.62DMI00.012.1 · Membangun Skenario Model",
         "Adu 8 setelan di simulasi [400:500]: rem Ridge selamatkan model",
         12,
         subtitle=(
@@ -1982,8 +2020,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "lifecycle.py",
                     "evaluate_timeseries_modeling_scenarios",
-                    max_lines=15,
-                    max_chars=58,
+                    max_lines=13,
+                    max_chars=66,
                     start_at="for scen_id, label",
                 ),
             ),
@@ -1992,13 +2030,21 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "walk_forward.py",
                     "evaluate_walk_forward_domino",
-                    max_lines=10,
-                    max_chars=58,
+                    max_lines=8,
+                    max_chars=66,
                     start_at="y_all = y_series[lag:]",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (scenarios_timeseries_val.csv · jendela [400:500])",
+                [
+                    "S01 lag=1 a=1.0 raw : vs AR=-1,26% | vs Naive=-0,61%",
+                    "S03 lag=5 a=0.001   : vs AR=-0,26% | vs Naive=-6,64% [OVERFIT]",
+                    "S08 lag=5 a=1.0 adj : vs AR=+4,16% | vs Naive=+1,59% [DIPILIH]",
+                ],
+            ),
         ],
-        font_size=7.7,
+        font_size=7.2,
     )
 
     # =========================================================================
@@ -2007,7 +2053,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s13 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s13,
-        "IV · Desain Skenario Model",
+        "Unit 8 · J.62DMI00.012.1 · Membangun Skenario Model",
         "Memilih otak terbaik isi kulkas & uji bobot rasa vs harga",
         13,
     )
@@ -2090,7 +2136,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s14 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s14,
-        "IV · Pembangunan Model",
+        "Unit 9 · J.62DMI00.013.1 · Membangun Model",
         "Melacak efek domino & membuktikan sinyalnya bukan kebetulan",
         14,
     )
@@ -2164,18 +2210,18 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "domino.py",
                     "granger_ftest",
-                    max_lines=10,
-                    max_chars=60,
+                    max_lines=9,
+                    max_chars=66,
                     start_at="beta_r, *_",
                 ),
             ),
             (
-                "src/dapur_domino/prices/domino.py · Saringan Temuan Kebetulan (FDR)",
+                "src/dapur_domino/prices/domino.py · Saringan Kebetulan (FDR) & Kocok 20×",
                 extract_function_snippet(
                     src / "prices" / "domino.py",
                     "benjamini_hochberg_fdr",
-                    max_lines=10,
-                    max_chars=60,
+                    max_lines=7,
+                    max_chars=66,
                     start_at="order = np.argsort",
                 ),
             ),
@@ -2184,13 +2230,21 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "prices" / "domino.py",
                     "run_circular_shift_permutation_control",
-                    max_lines=8,
-                    max_chars=60,
+                    max_lines=6,
+                    max_chars=66,
                     start_at="shift = int(rng.integers",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (m2_summary.json · 500 hari awal)",
+                [
+                    "raw_sig=50/90 | seasonal_adj=56/90 (100% bertahan)",
+                    "top_edge: Minyak Goreng -> Daging Ayam (F=9,79, q=5.3e-07)",
+                    "20x np.roll false_edges: 3,1/90 = 3,44% (<= batas 5%)",
+                ],
+            ),
         ],
-        font_size=7.3,
+        font_size=6.9,
     )
 
     # =========================================================================
@@ -2199,7 +2253,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s15 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s15,
-        "IV · Temuan Daerah & Hari Raya",
+        "Unit 9 · J.62DMI00.013.1 · Membangun Model",
         "Kota Solo jadi barometer cabai nasional; cabai melonjak Lebaran",
         15,
     )
@@ -2270,7 +2324,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s16 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s16,
-        "IV · Pembangunan Model",
+        "Unit 9 · J.62DMI00.013.1 · Membangun Model",
         "Membentuk 82 geng rasa masakan & AI pemeta makna bahan",
         16,
     )
@@ -2340,8 +2394,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "recipes" / "network.py",
                     "build_ingredient_cooccurrence_graph",
-                    max_lines=9,
-                    max_chars=68,
+                    max_lines=8,
+                    max_chars=76,
                     start_at="p_a = item_counts[a]",
                 ),
             ),
@@ -2350,8 +2404,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "recipes" / "network.py",
                     "build_ingredient_cooccurrence_graph",
-                    max_lines=6,
-                    max_chars=68,
+                    max_lines=5,
+                    max_chars=76,
                     start_at="partition: dict",
                 ),
             ),
@@ -2360,14 +2414,21 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "recipes" / "embedding.py",
                     "train_ingredient_embeddings",
-                    max_lines=10,
-                    max_chars=68,
+                    max_lines=9,
+                    max_chars=76,
                     skip_markers=("    if not sentences:", "        raise ValueError"),
                     start_at="sentences = [sorted",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (m3_summary.json · 66.419 resep latih, seed=42)",
+                [
+                    "graph: 1.334 bahan standar | 11.938 tali NPMI (>=0,05) | 82 geng Louvain",
+                    "w2v  : vocab=1.334 x 64 dimensi | sg=1 | workers=1 | RAM=313,6 MB",
+                ],
+            ),
         ],
-        font_size=7.7,
+        font_size=7.2,
     )
 
     # =========================================================================
@@ -2376,7 +2437,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s17 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s17,
-        "IV · Pembangunan Model",
+        "Unit 9 · J.62DMI00.013.1 · Membangun Model",
         "Delapan komponen model lokal: rapi tercatat & enteng di RAM 8 GB",
         17,
         subtitle=(
@@ -2458,7 +2519,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s18 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s18,
-        "V · Ujian Dunia Nyata",
+        "Unit 10 · J.62DMI00.014.1 · Mengevaluasi Hasil Pemodelan",
         "Ujian maraton 296 hari baru: menang di minyak–sapi–beras, kalah di cabai",
         18,
     )
@@ -2490,8 +2551,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "walk_forward.py",
                     "_fit_ridge",
-                    max_lines=8,
-                    max_chars=58,
+                    max_lines=7,
+                    max_chars=66,
                 ),
             ),
             (
@@ -2499,8 +2560,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "walk_forward.py",
                     "evaluate_walk_forward_domino",
-                    max_lines=9,
-                    max_chars=58,
+                    max_lines=7,
+                    max_chars=66,
                     start_at="beta_ar = _fit_ridge",
                 ),
             ),
@@ -2509,14 +2570,22 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "walk_forward.py",
                     "diebold_mariano_test",
-                    max_lines=10,
-                    max_chars=58,
+                    max_lines=8,
+                    max_chars=66,
                     skip_markers=("    if var_d <= 1e-24:", "        return 0.0, 1.0"),
                     start_at="d = (errors_model**2)",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (walk_forward_seasonal_adj.csv · 296 hari uji)",
+                [
+                    "Minyak Goreng : +14,79% vs AR(5) | DM p=0,0002 [LULUS]",
+                    "Daging Sapi   : +10,00% vs AR(5) | Beras +6,62% (p=0,0173)",
+                    "Cabai Rawit   :  -6,96% | Bawang Merah -7,84% [MUNDUR AR5]",
+                ],
+            ),
         ],
-        font_size=7.5,
+        font_size=7.0,
     )
 
     # =========================================================================
@@ -2525,7 +2594,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s19 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s19,
-        "V · Ujian Dunia Nyata",
+        "Unit 10 · J.62DMI00.014.1 · Mengevaluasi Hasil Pemodelan",
         "Rapor jalur kuliner: isi kulkas menang sah; pengganti 24% & siap dibedah",
         19,
     )
@@ -2602,8 +2671,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "recipes" / "network.py",
                     "recommend_complements_conditional",
-                    max_lines=8,
-                    max_chars=64,
+                    max_lines=7,
+                    max_chars=70,
                     skip_ranges=[
                         ("        matches:", "        matches:"),
                         ("            matches.append", "            continue"),
@@ -2612,25 +2681,12 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 ),
             ),
             (
-                "src/dapur_domino/evaluation/recipe_eval.py · Ukur Word2Vec di Set Uji",
-                extract_function_snippet(
-                    src / "evaluation" / "recipe_eval.py",
-                    "evaluate_hide_one_ingredient",
-                    max_lines=5,
-                    max_chars=64,
-                    skip_ranges=[
-                        ("            for item in obs_set:", "                    scores")
-                    ],
-                    start_at="ctx_vec = np.mean",
-                ),
-            ),
-            (
                 "src/dapur_domino/evaluation/lifecycle.py · Hitung Poin Peringkat MRR & NDCG",
                 extract_function_snippet(
                     src / "evaluation" / "lifecycle.py",
                     "evaluate_vp3_ranking_and_error_taxonomy",
-                    max_lines=10,
-                    max_chars=64,
+                    max_lines=9,
+                    max_chars=70,
                     skip_ranges=[
                         ("        rr_list.append", "        rr_list.append"),
                         ("            k: int,", "        ) -> float:"),
@@ -2644,12 +2700,19 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     src / "evaluation" / "recipe_eval.py",
                     "wilson_confidence_interval",
                     max_lines=6,
-                    max_chars=64,
+                    max_chars=70,
                     start_at="p = successes",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (m3_summary.json & vp3_error_taxonomy.csv)",
+                [
+                    "Isi Kulkas (n=3.459): Cond.PMI=45,50% [43,85–47,17%] vs Pop=40,88%",
+                    "Pengganti  (n=25)   : Recall@5=24,0% (6/25) | MRR=0,2100 | NDCG=9,37%",
+                ],
+            ),
         ],
-        font_size=7.0,
+        font_size=6.8,
     )
 
     # =========================================================================
@@ -2658,7 +2721,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s20 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s20,
-        "V · Bedah Error & Dampak",
+        "Unit 10 · J.62DMI00.014.1 · Mengevaluasi Hasil Pemodelan",
         "Autopsi 19 tebakan meleset: beda tulisan, bukan AI ngawur",
         20,
     )
@@ -2733,7 +2796,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s21 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s21,
-        "V · Jembatan Sadar-Harga",
+        "Unit 10 · J.62DMI00.014.1 · Mengevaluasi Hasil Pemodelan",
         "Mengawinkan rasa masakan & kestabilan harga tanpa mengarang rupiah",
         21,
     )
@@ -2793,8 +2856,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "bridge" / "scoring.py",
                     "compute_commodity_price_metrics",
-                    max_lines=7,
-                    max_chars=58,
+                    max_lines=6,
+                    max_chars=64,
                     start_at="latest_px = float",
                 ),
             ),
@@ -2803,8 +2866,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "bridge" / "scoring.py",
                     "score_price_aware_substitutions",
-                    max_lines=19,
-                    max_chars=58,
+                    max_lines=15,
+                    max_chars=64,
                     skip_ranges=[
                         (
                             '                    "target_ingredient":',
@@ -2818,8 +2881,16 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="sim_score = float",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (bridge_eval_summary.csv · 18 Nov 2026)",
+                [
+                    "cabai rawit -> cabai rawit merah [mapped]   score=0,8707",
+                    "cabai merah keriting -> cabai merah [mapped] score=0,8284",
+                    "santan -> santan dari kelapa    [unmapped]  score=None",
+                ],
+            ),
         ],
-        font_size=7.6,
+        font_size=7.1,
     )
 
     # =========================================================================
@@ -2828,7 +2899,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s22 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s22,
-        "V · Tinjauan Akhir Model",
+        "Unit 11 · J.62DMI00.015.1 · Melakukan Proses Review Pemodelan",
         "Keputusan rilis produksi per bahan: kapan Domino, kapan mundur",
         22,
     )
@@ -2904,8 +2975,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "walk_forward.py",
                     "evaluate_walk_forward_domino",
-                    max_lines=15,
-                    max_chars=62,
+                    max_lines=12,
+                    max_chars=68,
                     skip_ranges=[("        mae_naive =", "        mae_domino =")],
                     start_at="rmse_ar = float",
                 ),
@@ -2915,8 +2986,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 extract_function_snippet(
                     src / "evaluation" / "lifecycle.py",
                     "build_model_review_decision_matrix",
-                    max_lines=12,
-                    max_chars=62,
+                    max_lines=10,
+                    max_chars=68,
                     skip_ranges=[
                         ("            decision =", "            decision ="),
                         ("            review_rationale =", "            next_action ="),
@@ -2925,8 +2996,16 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                     start_at="if r_valid and s_valid:",
                 ),
             ),
+            (
+                ">>> OUTPUT NYATA (model_review_decisions.csv · 10 bahan pokok)",
+                [
+                    "DEPLOY Domino ARX(5) : 3/10 (Beras, Daging Sapi, Minyak Goreng)",
+                    "FALLBACK AR(5)       : 5/10 (Cabai Merah/Rawit, Bawang M/P, Gula)",
+                    "FALLBACK Naive Last  : 2/10 (Daging Ayam, Telur Ayam)",
+                ],
+            ),
         ],
-        font_size=7.4,
+        font_size=6.9,
     )
 
     # =========================================================================
@@ -2935,7 +3014,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s23 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s23,
-        "V · Tinjauan Akhir Model",
+        "Unit 11 · J.62DMI00.015.1 · Melakukan Proses Review Pemodelan",
         "Mengakui 4 batasan model secara jujur & peta kerja Iterasi Ke-2",
         23,
     )
@@ -2999,7 +3078,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     s24 = prs.slides.add_slide(blank_layout)
     y0 = add_header_footer(
         s24,
-        "V · Komunikasi Hasil",
+        "Unit 11 · J.62DMI00.015.1 · Melakukan Proses Review Pemodelan",
         "Menyampaikan hasil riset ke masyarakat awam lewat 4 modul visual",
         24,
         subtitle=(
@@ -3336,17 +3415,490 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
             "(visualisasi EDA & evaluasi lengkap).\n"
             "• Berjalan 100% lokal (NumPy, Pandas, SciPy, Statsmodels, NetworkX, "
             "Louvain, & Gensim Word2Vec) tanpa cloud/LLM.\n"
-            "• Verifikasi seluruh uji otomatis terkonfirmasi: 33/33 pytest lolos."
+            "• Reprodusibilitas penuh: dijalankan ulang dengan seed=42 menghasilkan angka identik."
         ),
-        title="Jejak Portofolio & Uji Teknis:\n",
+        title="Jejak Portofolio & Reprodusibilitas:\n",
         accent=RGB_YEL,
         font_size=9.4,
     )
 
+    # =========================================================================
+    # SLIDE 28: LAMPIRAN D — PETA BUKTI 11 UNIT KOMPETENSI BNSP DATA SCIENTIST
+    # =========================================================================
+    s28 = prs.slides.add_slide(blank_layout)
+    y0 = add_header_footer(
+        s28,
+        "Lampiran · Verifikasi Portofolio BNSP Ilmuwan Data",
+        "Lampiran D · Peta bukti 11 Unit Kompetensi SKKNI Data Scientist",
+        28,
+        subtitle=(
+            "Pemetaan langsung setiap unit kompetensi resmi BNSP ke slide presentasi, "
+            "fungsi kode Python asli, dan bukti output terukur."
+        ),
+    )
+    skkni_rows = [
+        [
+            "1",
+            "J.62DMI00.001.1",
+            "Menentukan Objektif Bisnis",
+            "Slide 2",
+            "build_business_objectives_matrix() -> 4 KPI usaha, >=25% dapur, RAM <=8 GB",
+        ],
+        [
+            "2",
+            "J.62DMI00.002.1",
+            "Menentukan Tujuan Teknis Data Science",
+            "Slide 3",
+            "build_technical_ds_objectives_matrix() -> 7 target teknis & baseline adil",
+        ],
+        [
+            "3",
+            "J.62DMI00.005.1",
+            "Menelaah Data",
+            "Slide 4–5, 30",
+            (
+                "analyze_price_distributions() & analyze_recipe_corpus_distributions() "
+                "-> CV 20,8%, Zipf 80,4%"
+            ),
+        ],
+        [
+            "4",
+            "J.62DMI00.006.1",
+            "Memvalidasi Data",
+            "Slide 6–7, 30",
+            (
+                "verify_raw_manifest() & test_series_stationarity() "
+                "-> 370 SHA-256 OK, ADF+KPSS 90–98,2%"
+            ),
+        ],
+        [
+            "5",
+            "J.62DMI00.007.1",
+            "Menentukan Objek Data",
+            "Slide 8, 30",
+            (
+                "build_data_selection_matrix() -> 1.141.526 baris PIHPS, "
+                "sekat [0:400]/[400:500]/[500:796]"
+            ),
+        ],
+        [
+            "6",
+            "J.62DMI00.008.1",
+            "Membersihkan Data",
+            "Slide 9, 29",
+            (
+                "clean_price_wide_panel() & normalize_ingredient_line() "
+                "-> 796 hr aktif, 271/300 (90,33%) bersih"
+            ),
+        ],
+        [
+            "7",
+            "J.62DMI00.009.1",
+            "Mengkonstruksi Data",
+            "Slide 10–11, 30",
+            (
+                "build_calendar_design_matrix() & residualize_calendar_seasonality() "
+                "-> 11 fitur, 0% bocor"
+            ),
+        ],
+        [
+            "8",
+            "J.62DMI00.012.1",
+            "Membangun Skenario Model",
+            "Slide 12–13, 31",
+            (
+                "evaluate_timeseries_modeling_scenarios() "
+                "-> 8 skenario, alpha=1,0 cegah overfit -6,64%"
+            ),
+        ],
+        [
+            "9",
+            "J.62DMI00.013.1",
+            "Membangun Model",
+            "Slide 14–17, 31",
+            (
+                "granger_ftest(), benjamini_hochberg_fdr(), Louvain 82 geng, "
+                "Word2Vec 64d (796,1 MB RAM)"
+            ),
+        ],
+        [
+            "10",
+            "J.62DMI00.014.1",
+            "Mengevaluasi Hasil Pemodelan",
+            "Slide 18–21, 32",
+            (
+                "evaluate_walk_forward_domino(), diebold_mariano_test(), wilson_ci() "
+                "-> 296 hr uji, 3/10 lulus"
+            ),
+        ],
+        [
+            "11",
+            "J.62DMI00.015.1",
+            "Melakukan Proses Review Pemodelan",
+            "Slide 22–24, 32",
+            (
+                "build_model_review_decision_matrix() -> aturan Go/Fallback "
+                "(3 Domino, 5 AR5, 2 Naive) & Iterasi 2"
+            ),
+        ],
+    ]
+    add_clean_table(
+        s28,
+        0.58,
+        y0,
+        12.18,
+        5.25,
+        [
+            "No",
+            "Kode Unit",
+            "Judul Unit Kompetensi",
+            "Slide",
+            "Fungsi Kode Python & Bukti Output Terukur",
+        ],
+        skkni_rows,
+        [0.48, 1.55, 2.85, 1.15, 6.15],
+        font_size=8.4,
+        bold_cols={0, 1, 2},
+    )
+
+    # =========================================================================
+    # SLIDE 29: LAMPIRAN E — BEDAH KODE LENGKAP UNIT 6 (DATA CLEANING)
+    # =========================================================================
+    s29 = prs.slides.add_slide(blank_layout)
+    y0 = add_header_footer(
+        s29,
+        "Unit 6 · J.62DMI00.008.1 · Membersihkan Data (Bedah Kode Lengkap)",
+        "Lampiran E · Kode lengkap, penjelasan cara kerja, & output data cleaning",
+        29,
+        subtitle=(
+            "Pembersihan harga PIHPS (libur, seri kosong >20%, tambal <=3 hari) serta "
+            "normalisasi 852.568 baris teks resep & 236 sinonim."
+        ),
+    )
+    add_code_panel(
+        s29,
+        0.58,
+        y0,
+        6.22,
+        5.35,
+        [
+            (
+                "src/dapur_domino/cleaning/prices.py · clean_price_wide_panel()",
+                extract_function_snippet(
+                    src / "cleaning" / "prices.py",
+                    "clean_price_wide_panel",
+                    max_lines=14,
+                    max_chars=66,
+                    skip_ranges=[
+                        ("    series_audit = pd.DataFrame", "    )"),
+                        ("    outlier_rows:", "    outlier_rows:"),
+                        ("            index=retained_wide", "            columns=retained_wide"),
+                    ],
+                    start_at="date_missing_frac =",
+                ),
+            ),
+            (
+                "src/dapur_domino/cleaning/ingredients.py · normalize_ingredient_line()",
+                extract_function_snippet(
+                    src / "cleaning" / "ingredients.py",
+                    "normalize_ingredient_line",
+                    max_lines=14,
+                    max_chars=66,
+                    start_at="text = html.unescape",
+                ),
+            ),
+        ],
+        font_size=6.8,
+    )
+    add_code_panel(
+        s29,
+        6.96,
+        y0,
+        5.80,
+        5.35,
+        [
+            (
+                ">>> CARA KERJA KODE DATA CLEANING (BAHASA SEDERHANA)",
+                [
+                    "1) date_missing_frac >= 0.90: membuang 8 tanggal libur nasional",
+                    "   saat >=90% pasar tutup sehingga 804 hari -> 796 hari aktif.",
+                    "2) raw_missing_pct <= 0.20: membuang 50 seri kota yang bolong",
+                    "   parah (>20%) agar tidak menciptakan harga beku palsu.",
+                    "3) ffill(limit=3): menambal harga kosong maksimal 3 hari kerja.",
+                    "4) re.sub & re.split: menghapus tag HTML, isi kurung, satuan",
+                    "   takaran (sdm, gr, siung), memecah 'garam gula' yang menempel,",
+                    "   lalu memetakan 236 kamus singkatan ('baput'->'bawang putih').",
+                ],
+            ),
+            (
+                ">>> OUTPUT EKSEKUSI NYATA · Unit 6 (J.62DMI00.008.1)",
+                [
+                    "Input Harga  : '58,450' -> 58450.0 | '-' -> None (1.141.526 baris)",
+                    "Panel Bersih : Nas 10/10 | Prov 340/340 | Kota 1.049/1.099 seri",
+                    "Input Resep  : '1/2 kol (3 ribu) (potong)' -> ['kubis']",
+                    "Input Resep  : '3 siung bawang putih iris' -> ['bawang putih']",
+                    "Input Resep  : '1 sdt garam gula'          -> ['garam','gula pasir']",
+                    "Audit Manual : 271 / 300 baris uji bersih sempurna (90,33% >= 90%)",
+                ],
+            ),
+        ],
+        font_size=7.0,
+    )
+
+    # =========================================================================
+    # SLIDE 30: LAMPIRAN F — BEDAH KODE UNIT 3, 4, 5, & 7 (EDA, VALIDASI, FITUR)
+    # =========================================================================
+    s30 = prs.slides.add_slide(blank_layout)
+    y0 = add_header_footer(
+        s30,
+        "Unit 3, 4, 5, & 7 · J.62DMI00.005.1–009.1 · Telaah, Validasi, & Konstruksi Data",
+        "Lampiran F · Kode lengkap, penjelasan, & output validasi serta fitur",
+        30,
+        subtitle=(
+            "Transformasi persen gerak harian, uji 2 pintu ADF+KPSS, dan pengupasan "
+            "11 fitur kalender/Lebaran yang belajar murni di [:500] hari awal."
+        ),
+    )
+    add_code_panel(
+        s30,
+        0.58,
+        y0,
+        6.22,
+        5.35,
+        [
+            (
+                "src/dapur_domino/prices/stationarity.py · test_series_stationarity()",
+                extract_function_snippet(
+                    src / "prices" / "stationarity.py",
+                    "test_series_stationarity",
+                    max_lines=14,
+                    max_chars=66,
+                    skip_ranges=[
+                        ("    kpss_note:", "        warnings.simplefilter"),
+                        ("        if caught:", "            kpss_note ="),
+                    ],
+                    start_at="adf_stat, adf_p",
+                ),
+            ),
+            (
+                "src/dapur_domino/prices/seasonality.py · residualize_calendar_seasonality()",
+                extract_function_snippet(
+                    src / "prices" / "seasonality.py",
+                    "residualize_calendar_seasonality",
+                    max_lines=12,
+                    max_chars=66,
+                    skip_ranges=[("        if int(valid.sum())", "            continue")],
+                    start_at="x_train = x_all[:train_end_idx]",
+                ),
+            ),
+        ],
+        font_size=6.9,
+    )
+    add_code_panel(
+        s30,
+        6.96,
+        y0,
+        5.80,
+        5.35,
+        [
+            (
+                ">>> CARA KERJA KODE VALIDASI & KONSTRUKSI (BAHASA SEDERHANA)",
+                [
+                    "1) compute_log_returns: mengubah Rupiah ke persen gerak harian",
+                    "   ln(Pt / Pt-1) agar beras (Rp 15 rb) & sapi (Rp 138 rb) setara.",
+                    "2) adfuller & kpss: menguji 2 pintu sekaligus — ADF memastikan",
+                    "   tidak melayang acak (p<0,05) & KPSS memastikan datar (p>=0,05).",
+                    "3) x_train = x_all[:500]: mengunci agar efek hari kerja, musim,",
+                    "   dan lonjakan H-14..H+7 Lebaran HANYA dipelajari dari 500 hari",
+                    "   awal (0% mengintip 296 hari ujian), lalu dikupas (y - X@beta).",
+                ],
+            ),
+            (
+                ">>> OUTPUT EKSEKUSI NYATA · Unit 3, 4, 5, & 7",
+                [
+                    "EDA Harga & Resep : Cabai Rawit CV=20,80% | Resep Latih 13,02 vs Uji 13,06",
+                    "SHA-256 Manifest  : 370/370 berkas mentah valid (0 rusak/berubah)",
+                    "ADF+KPSS Mentah   : 0/10 Nasional (0,0% — tertipu tren inflasi)",
+                    "ADF+KPSS LogReturn: Nas 9/10 (90,0%) | Prov 98,24% | Kota 98,00%",
+                    "Partisi & Fitur   : [0:400] + [400:500] + [500:796] | 11 fitur (0% bocor)",
+                ],
+            ),
+        ],
+        font_size=7.0,
+    )
+
+    # =========================================================================
+    # SLIDE 31: LAMPIRAN G — BEDAH KODE UNIT 8 & 9 (PEMODELAN DOMINO & KULINER)
+    # =========================================================================
+    s31 = prs.slides.add_slide(blank_layout)
+    y0 = add_header_footer(
+        s31,
+        "Unit 8 & 9 · J.62DMI00.012.1 & 013.1 · Skenario & Pembangunan Model",
+        "Lampiran G · Kode lengkap, penjelasan, & output pemodelan utama",
+        31,
+        subtitle=(
+            "Deteksi efek domino Granger + saringan FDR + kocok kalender 20×, serta "
+            "pembangunan graf bumbu NPMI, 82 komunitas Louvain, & Skip-Gram Word2Vec."
+        ),
+    )
+    add_code_panel(
+        s31,
+        0.58,
+        y0,
+        6.22,
+        5.35,
+        [
+            (
+                "src/dapur_domino/prices/domino.py · granger_ftest() & benjamini_hochberg_fdr()",
+                extract_function_snippet(
+                    src / "prices" / "domino.py",
+                    "granger_ftest",
+                    max_lines=10,
+                    max_chars=66,
+                    start_at="beta_r, *_",
+                ),
+            ),
+            (
+                "src/dapur_domino/recipes/embedding.py · train_ingredient_embeddings() & rank",
+                extract_function_snippet(
+                    src / "recipes" / "embedding.py",
+                    "rank_substitution_candidates",
+                    max_lines=14,
+                    max_chars=66,
+                    start_at="neighbors = model.wv",
+                ),
+            ),
+        ],
+        font_size=6.8,
+    )
+    add_code_panel(
+        s31,
+        6.96,
+        y0,
+        5.80,
+        5.35,
+        [
+            (
+                ">>> CARA KERJA KODE PEMODELAN (BAHASA SEDERHANA)",
+                [
+                    "1) granger_ftest: mengadu error tebakan tanpa pemicu (rss_r)",
+                    "   melawan error dengan pemicu 1–5 hari lalu (rss_u). Jika error",
+                    "   turun tajam dan lolos saringan BH-FDR <=5%, dicatat sebagai rantai.",
+                    "2) np.roll 20x: mengocok urutan tanggal untuk membuktikan bahwa",
+                    "   sinyal yang lolos saat tanggal diacak hanya 3,44% (bukan hoki).",
+                    "3) Word2Vec + penalti (1 - npmi): mencari bahan yang konteksnya",
+                    "   mirip (cosine_sim tinggi) tapi jarang dimasak sepanci.",
+                ],
+            ),
+            (
+                ">>> OUTPUT EKSEKUSI NYATA · Unit 8 & 9",
+                [
+                    "8 Skenario [400:500]: alpha=0,001 overfit (-6,64%) -> alpha=1,0 (+4,16%)",
+                    "Domino Granger+FDR  : 50/90 rantai mentah -> 56/90 bebas musim (100% tahan)",
+                    "Kocok Kalender 20x  : 3,1/90 sisi kebetulan (3,44% <= batas 5%)",
+                    "Barometer Daerah    : Solo pimpin Cabai Merah (77 kota) & Rawit (75 kota)",
+                    "Model Resep (M3)    : 1.334 bahan, 11.938 tali, 82 geng Louvain, Word2Vec 64d",
+                ],
+            ),
+        ],
+        font_size=7.0,
+    )
+
+    # =========================================================================
+    # SLIDE 32: LAMPIRAN H — BEDAH KODE UNIT 10 & 11 (EVALUASI & REVIEW MODEL)
+    # =========================================================================
+    s32 = prs.slides.add_slide(blank_layout)
+    y0 = add_header_footer(
+        s32,
+        "Unit 10 & 11 · J.62DMI00.014.1 & 015.1 · Evaluasi & Review Pemodelan",
+        "Lampiran H · Kode lengkap, penjelasan, & output evaluasi serta review",
+        32,
+        subtitle=(
+            "Peramalan berjalan Ridge 296 hari uji, wasit Diebold-Mariano, jembatan "
+            "sadar-harga tanpa harga karangan, serta aturan keputusan Go/Fallback."
+        ),
+    )
+    add_code_panel(
+        s32,
+        0.58,
+        y0,
+        6.22,
+        5.35,
+        [
+            (
+                "src/dapur_domino/evaluation/walk_forward.py · _fit_ridge() & DM Test",
+                extract_function_snippet(
+                    src / "evaluation" / "walk_forward.py",
+                    "_fit_ridge",
+                    max_lines=8,
+                    max_chars=66,
+                ),
+            ),
+            (
+                "src/dapur_domino/bridge/scoring.py · score_price_aware_substitutions()",
+                extract_function_snippet(
+                    src / "bridge" / "scoring.py",
+                    "score_price_aware_substitutions",
+                    max_lines=15,
+                    max_chars=66,
+                    skip_ranges=[
+                        (
+                            '                    "target_ingredient":',
+                            '                    "direct_npmi":',
+                        ),
+                        (
+                            '                    "comcat_id":',
+                            '                    "volatility_30d":',
+                        ),
+                    ],
+                    start_at="sim_score = float",
+                ),
+            ),
+        ],
+        font_size=6.8,
+    )
+    add_code_panel(
+        s32,
+        6.96,
+        y0,
+        5.80,
+        5.35,
+        [
+            (
+                ">>> CARA KERJA KODE EVALUASI & REVIEW (BAHASA SEDERHANA)",
+                [
+                    "1) _fit_ridge: menyelesaikan (X^T X + alpha*I) beta = X^T y tiap",
+                    "   pagi selama 296 hari ujian tanpa menghukum konstanta dasar.",
+                    "2) diebold_mariano_test: menguji selisih kuadrat error Domino vs",
+                    "   AR(5) agar klaim kemenangan sah secara statistik (p < 0,05).",
+                    "3) if cand_map is not None: menggabungkan 60% rasa + 40% harga",
+                    "   tenang hanya bila dipantau BI; jika tidak, wajib 'unmapped'.",
+                    "4) Aturan Review: hanya rilis Domino jika menang; sisanya fallback.",
+                ],
+            ),
+            (
+                ">>> OUTPUT EKSEKUSI NYATA · Unit 10 & 11",
+                [
+                    "Ujian 296 Hari (DM) : Minyak +14,79% (p=0,0002), Sapi +10,00%, Beras +6,62%",
+                    "Ujian Isi Kulkas    : Cond.PMI 45,50% [43,85–47,17%] vs Populer 40,88%",
+                    "Ujian Substitusi    : Recall@5=24,0% (10/19 gagal karena varian nama sama)",
+                    "Jembatan 60/40      : cabai rawit->cabai rawit merah 0,8707 | santan->None",
+                    "Keputusan Produksi  : 3/10 Domino ARX(5) | 5/10 Mundur AR(5) | 2/10 Naive",
+                ],
+            ),
+        ],
+        font_size=7.0,
+    )
+
     out_pptx.parent.mkdir(parents=True, exist_ok=True)
-    prs.save(str(out_pptx))
-    size_kb = out_pptx.stat().st_size / 1024
-    print(f"SAVED_PPTX: {out_pptx.resolve()} ({size_kb:.1f} KB, {len(prs.slides)} slides)")
+    target_out = out_pptx
+    try:
+        prs.save(str(target_out))
+    except PermissionError:
+        target_out = out_pptx.with_name("_Dapur_Domino_32slides_staging.pptx")
+        prs.save(str(target_out))
+    size_kb = target_out.stat().st_size / 1024
+    print(f"SAVED_PPTX: {target_out.resolve()} ({size_kb:.1f} KB, {len(prs.slides)} slides)")
 
 
 def main() -> None:

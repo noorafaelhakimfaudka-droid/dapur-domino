@@ -26,3 +26,6 @@ Thumbs.db
 *.tmp
 ~$*
 *.bak
+
+# materi presentasi, audiobook, & aset portofolio tetap lokal
+exports/
