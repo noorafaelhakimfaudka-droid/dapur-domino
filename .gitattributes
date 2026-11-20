@@ -1,0 +1,5 @@
+# Preserve exact byte-for-byte checksums (SHA-256) on data and run artifacts across Windows and Linux
+artifacts/**/*.csv -text
+artifacts/**/*.json -text
+data/**/*.csv -text
+data/**/*.json -text
