@@ -7,7 +7,7 @@ Status: `NOT_STARTED` · `IMPLEMENTED` · `TESTED` · `VERIFIED` · `FAILED` · 
 
 | Milestone | Status | Catatan |
 |---|---|---|
-| M0 — Fondasi & verifikasi data | **VERIFIED** | `370` file PIHPS (`2023-11` s.d. `2026-11`) + korpus resep penuh tersimpan & di-hash di `data/raw/manifest.json` |
+| M0 — Fondasi & verifikasi data | **VERIFIED** | `379` berkas mentah (`370` histori PIHPS `2023-11` s.d. `2026-11` + `9` ref/sampel/resep) di-hash di `data/raw/manifest.json` |
 | M1 — Pipeline data harga | **VERIFIED** | Run `m1_20261118T080609Z` (`1.141.526` baris, `796` hari kerja pasar buka) |
 | M2 — Analisis domino | **VERIFIED** | Run `m2_20261118T080707Z` (VP5=3,44%, VP6 296 hari uji, VP7=100% bertahan) |
 | M3 — Graph bahan | **VERIFIED** | Run `m3_20261118T070540Z` (VP1=90,33%, VP2=45,50% vs 40,88%, VP3=24,0%) |

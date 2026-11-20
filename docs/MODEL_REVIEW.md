@@ -24,7 +24,7 @@ Dokumen ini merangkum keseluruhan siklus eksperimen *Data Science* end-to-end (d
   - Jumlah bahan unik per resep identik antara Train (`mean = 13,02`, `median = 13`, `IQR = 7`) dan Eval (`mean = 13,06`, `median = 13`, `IQR = 6`), membuktikan ketiadaan *covariate shift*.
   - Frekuensi bahan mengikuti distribusi *power-law* (Zipf): **Top-10 bahan menyumbang `40,64%`** dan **Top-50 bahan menyumbang `80,40%`** seluruh kemunculan bahan.
 - **Validasi Kualitas & Stasioneritas (`data_validation_report.csv`, `data_selection_matrix.csv`):**
-  - `370` berkas mentah terverifikasi SHA-256 (`0` ketidakcocokan); `8` hari libur nasional (`>= 90%` kosong) disaring dari `804` hari kerja.
+  - `379` berkas mentah (`370` arsip PIHPS + `9` referensi/sampel/resep) terverifikasi SHA-256 (`0` ketidakcocokan); `8` hari libur nasional (`>= 90%` kosong) disaring dari `804` hari kerja.
   - Dari `1.099` seri kota, `50` seri dengan *missingness* `> 20%` dieksklusi sehingga menyisakan `1.049` seri kota aktif.
   - Uji stasioneritas ganda (`ADF p < 0,05` & `KPSS p >= 0,05`) melonjak dari `0/10` (harga mentah) menjadi **`90,0% (9/10)`** Nasional, **`98,24% (334/340)`** Provinsi, dan **`98,00% (1.028/1.049)`** Kota setelah transformasi *log-return*.
   - Partisi waktu kronologis 3-tahap: **Sub-Train `[0:400]`**, **Validasi `[400:500]`**, dan **Sealed Test `[500:796]`**.

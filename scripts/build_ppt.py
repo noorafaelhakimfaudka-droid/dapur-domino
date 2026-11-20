@@ -1441,7 +1441,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     val_rows = [
         [
             "Sidik jari keutuhan file (SHA-256)",
-            "370 berkas mentah · 0 berkas rusak/berubah",
+            "379 berkas mentah · 0 berkas rusak/berubah",
             "VALID",
         ],
         [
@@ -1524,7 +1524,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
             (
                 ">>> OUTPUT NYATA (verify_raw_manifest & m1_summary.json)",
                 [
-                    "raw_manifest : 370/370 OK (0 mismatch, 0 missing)",
+                    "raw_manifest : 379/379 OK (0 mismatch, 0 missing)",
                     "market_days  : 804 -> 796 aktif (8 libur disaring)",
                     "city_series  : 1.099 -> 1.049 bersih (50 dibuang)",
                     "outliers_log : nas=0 | prov=9 | kota=66 titik",
@@ -2038,8 +2038,8 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
             (
                 ">>> OUTPUT NYATA (scenarios_timeseries_val.csv · jendela [400:500])",
                 [
-                    "S01 lag=1 a=1.0 raw : vs AR=-1,26% | vs Naive=-0,61%",
-                    "S03 lag=5 a=0.001   : vs AR=-0,26% | vs Naive=-6,64% [OVERFIT]",
+                    "S01 lag=1 a=1.0 raw : vs AR=-1,26% | vs Naive=-4,20%",
+                    "S03 lag=5 a=0.001   : vs AR=+1,06% | vs Naive=-6,64% [OVERFIT]",
                     "S08 lag=5 a=1.0 adj : vs AR=+4,16% | vs Naive=+1,59% [DIPILIH]",
                 ],
             ),
@@ -2531,9 +2531,9 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
         6.25,
         1.20,
         (
-            "Minyak Goreng (+14,79%, DM p=0,0002), Daging Sapi (+10,00%), & Beras (+6,62%, "
-            "DM p=0,0173) menang sah. Sebaliknya Cabai & Bawang lebih akurat diramal riwayatnya "
-            "sendiri (AR5) akibat kejutan panen & hujan lokal — pola domino tak dipaksakan!"
+            "Minyak Goreng (+13,47% Raw DM p=0,0022; +14,79% vs AR5 Musiman), Daging Sapi "
+            "(+12,32% Raw / +10,00% Musiman), & Beras (+6,62% Musiman, p=0,0173) lolos VP6. "
+            "Sebaliknya Cabai & Bawang lebih akurat memakai AR(5) akibat hujan & panen lokal."
         ),
         title="Vonis Jujur 296 Hari Ujian:",
         accent=RGB_RED,
@@ -2577,10 +2577,10 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 ),
             ),
             (
-                ">>> OUTPUT NYATA (walk_forward_seasonal_adj.csv · 296 hari uji)",
+                ">>> OUTPUT NYATA (walk_forward_raw & seasonal_adj · 296 hari uji)",
                 [
-                    "Minyak Goreng : +14,79% vs AR(5) | DM p=0,0002 [LULUS]",
-                    "Daging Sapi   : +10,00% vs AR(5) | Beras +6,62% (p=0,0173)",
+                    "Minyak Goreng : +13,47% Raw (DM p=0,0022 LULUS) | +14,79% Musiman",
+                    "Daging Sapi   : +10,00% Musiman / +12,32% Raw | Beras +6,62% (p=0,0173)",
                     "Cabai Rawit   :  -6,96% | Bawang Merah -7,84% [MUNDUR AR5]",
                 ],
             ),
@@ -3342,7 +3342,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
     gov_rows = [
         [
             "Cek Keutuhan File Mentah",
-            "370 berkas PIHPS & resep lulus cek sidik jari SHA-256 (0 rusak)",
+            "379 berkas PIHPS & resep lulus cek sidik jari SHA-256 (0 rusak)",
             "Menjamin data historis tak terpotong atau berubah diam-diam.",
         ],
         [
@@ -3468,7 +3468,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
             "Slide 6–7, 30",
             (
                 "verify_raw_manifest() & test_series_stationarity() "
-                "-> 370 SHA-256 OK, ADF+KPSS 90–98,2%"
+                "-> 379 SHA-256 OK, ADF+KPSS 90–98,2%"
             ),
         ],
         [
@@ -3717,7 +3717,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
                 ">>> OUTPUT EKSEKUSI NYATA · Unit 3, 4, 5, & 7",
                 [
                     "EDA Harga & Resep : Cabai Rawit CV=20,80% | Resep Latih 13,02 vs Uji 13,06",
-                    "SHA-256 Manifest  : 370/370 berkas mentah valid (0 rusak/berubah)",
+                    "SHA-256 Manifest  : 379/379 berkas mentah valid (0 rusak/berubah)",
                     "ADF+KPSS Mentah   : 0/10 Nasional (0,0% — tertipu tren inflasi)",
                     "ADF+KPSS LogReturn: Nas 9/10 (90,0%) | Prov 98,24% | Kota 98,00%",
                     "Partisi & Fitur   : [0:400] + [400:500] + [500:796] | 11 fitur (0% bocor)",
@@ -3879,7 +3879,7 @@ def build_presentation(repo_root: Path, out_pptx: Path) -> None:
             (
                 ">>> OUTPUT EKSEKUSI NYATA · Unit 10 & 11",
                 [
-                    "Ujian 296 Hari (DM) : Minyak +14,79% (p=0,0002), Sapi +10,00%, Beras +6,62%",
+                    "Ujian 296 Hari (DM) : Minyak +13,47% Raw (LULUS), Sapi +10,00%, Beras +6,62%",
                     "Ujian Isi Kulkas    : Cond.PMI 45,50% [43,85–47,17%] vs Populer 40,88%",
                     "Ujian Substitusi    : Recall@5=24,0% (10/19 gagal karena varian nama sama)",
                     "Jembatan 60/40      : cabai rawit->cabai rawit merah 0,8707 | santan->None",
